@@ -8,9 +8,16 @@ class RutasController {
 		require("Controller.php");
 		require("php/config/rutas.php");
 		require("php/config/config.php");
-		$partesURL = array_filter(explode("/", $_SERVER['REQUEST_URI']));
+		if (!empty($_GET)) {
+			$url = explode("?", $_SERVER['REQUEST_URI']);
+			$url = $url[0];
+		} else {
+			$url = $_SERVER['REQUEST_URI'];
+		}
+		$partesURL = array_filter(explode("/", $url));
 		$primerElemento = array_shift($partesURL);
 		$urlLength = count($partesURL);
+		var_dump($partesURL);
 		switch($urlLength) {
 				case 0:
 					$val = $rutas["main"];
