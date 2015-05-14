@@ -1,15 +1,20 @@
 <?php 
-include("Controller.php");
 class RegistroController extends Controller { 
+	
 	public function __construct() {
 		
 	}
 	
-	public function cargarTemplate() {
-		parent::cargarVista('header.php');
-		parent::cargarVista('form_registro.php');
-		parent::cargarVista('footer.php');
+	public function main() {
+		if (empty($_POST)) {
+			parent::cargarVista('header.php');
+			parent::cargarVista('form_registro.php');
+			parent::cargarVista('footer.php');
+		} else {
+			$this->procesarRegistro();
+		}
 	}
+	
 	
 	public function procesarRegistro() {
 		if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
@@ -23,10 +28,5 @@ class RegistroController extends Controller {
 		
 	}
 }
-$rc = new RegistroController();
-if (empty($_POST)) {
-	$rc->cargarTemplate();
-} else {
-	$rc->procesarRegistro();
-}
+
 ?>
