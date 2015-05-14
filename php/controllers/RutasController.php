@@ -55,10 +55,8 @@ class RutasController {
 				break;
 				case 3:
 					$objectData = explode("/", $rutas[$partesURL[0]."/".$partesURL[1]."/@param"]);
-					if ($partesURL[2] == "@param") {
-						$e = explode("/", $_SERVER['REQUEST_URI']);
-						$data['url'] = $e[4];
-					}
+					$e = explode("/", $_SERVER['REQUEST_URI']);
+					$data['url'] = $e[4];
 					$controller = $objectData[0];
 					$method = $objectData[1];
 					require($controller.".php");
