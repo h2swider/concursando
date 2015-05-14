@@ -35,12 +35,14 @@ class RutasController {
 					$method = $partesURL[1];
 					require($controller.".php");
 					$obj = new $controller();
+					$data = array();
 					if (!empty($_POST)) {
-						$post_params = $_POST;
-						$obj->$method($post_params);
+						$data['post'] = $_POST;
 					} else if (!empty($_GET)) {
-						$get_params = $_GET;
-						$obj->$method($_GET);
+						$data['get'] = $_GET;
+					} 
+					if (!empty($data)) {
+						$obj->$method($data);
 					} else {
 						$obj->$method();
 					}
