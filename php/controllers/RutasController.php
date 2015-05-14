@@ -11,8 +11,7 @@ class RutasController {
 		$partesURL = array_filter(explode("/", $_SERVER['REQUEST_URI']));
 		$primerElemento = array_shift($partesURL);
 		$urlLength = count($partesURL);
-		foreach($rutas as $k=>$v) {
-			switch($urlLength) {
+		switch($urlLength) {
 				case 0:
 					$val = $rutas["main"];
 					$partesURL = explode("/", $val);
@@ -21,7 +20,6 @@ class RutasController {
 					require($controller.".php");
 					$obj = new $controller();
 					$obj->$method();
-					exit;
 				break;
 				case 1:
 					$val = $rutas[$partesURL[0]];
@@ -39,50 +37,42 @@ class RutasController {
 					} else {
 						$obj->$method();
 					}
-					exit;
 				break;
 				case 2:
-					$partesURL = explode("/", $k);
-					if (count($partesURL) == 2) {
-						$val = $rutas[$partesURL[0]."/".$partesURL[1]];
-						$partesURL = explode("/", $val);
-						$controller = $partesURL[0];
-						$method = $partesURL[1];
-						require($controller.".php");
-						$obj = new $controller();
-						if (!empty($_POST)) {
-							$data['post'] = $_POST;
-						}
-						if (!empty($_GET)) {
-							$data['get'] = $_GET;
-						}
-						$obj->$method($data);
+					$val = $rutas[$partesURL[0]."/".$partesURL[1]];
+					$partesURL = explode("/", $val);
+					$controller = $partesURL[0];
+					$method = $partesURL[1];
+					require($controller.".php");
+					$obj = new $controller();
+					if (!empty($_POST)) {
+						$data['post'] = $_POST;
 					}
+					if (!empty($_GET)) {
+						$data['get'] = $_GET;
+					}
+					$obj->$method($data);
 				break;
 				case 3:
-					$partesURL = explode("/", $k);
-					if (count($partesURL) == 3) {
-						$objectData = explode("/", $rutas[$partesURL[0]."/".$partesURL[1]."/@param"]);
-						if ($partesURL[2] == "@param") {
-							$e = explode("/", $_SERVER['REQUEST_URI']);
-							$data['url'] = $e[4];
-						}
-						$controller = $objectData[0];
-						$method = $objectData[1];
-						require($controller.".php");
-						$obj = new $controller();
-						if (!empty($_POST)) {
-							$data['post'] = $_POST;
-						}
-						if (!empty($_GET)) {
-							$data['get'] = $_GET;
-						}
-						$obj->$method($data);
+					$objectData = explode("/", $rutas[$partesURL[0]."/".$partesURL[1]."/@param"]);
+					if ($partesURL[2] == "@param") {
+						$e = explode("/", $_SERVER['REQUEST_URI']);
+						$data['url'] = $e[4];
 					}
+					$controller = $objectData[0];
+					$method = $objectData[1];
+					require($controller.".php");
+					$obj = new $controller();
+					if (!empty($_POST)) {
+						$data['post'] = $_POST;
+					}
+					if (!empty($_GET)) {
+						$data['get'] = $_GET;
+					}
+					$obj->$method($data);
 				break;
 			
 			}
-		}
 	}
 	
 }
