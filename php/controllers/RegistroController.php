@@ -10,23 +10,20 @@ class RegistroController extends Controller {
 			parent::cargarVista('header.php');
 			parent::cargarVista('form_registro.php');
 			parent::cargarVista('footer.php');
-		} else {
-			$this->procesarRegistro();
 		}
 	}
 	
-	
-	public function procesarRegistro() {
-		if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
-			die("Mail incorrecto");
+	public function procesarRegistro($data='') {
+		if (!empty($data['post'])) {
+			if (filter_var($data['post']['email'], FILTER_VALIDATE_EMAIL) === false) {
+				die("Mail incorrecto");
+			}
+			if (!preg_match('/^[a-f0-9]{32}$/', $data['post']['password'])) {
+				die("El string no es md5");
+			}
+		} else {
+			die("No data");
 		}
-		if (!preg_match('/^[a-f0-9]{32}$/', $_POST['password'])) {
-			die("El string no es md5");
-		}
-		
-		echo "Llego todo ok";
-		
 	}
 }
-
 ?>
