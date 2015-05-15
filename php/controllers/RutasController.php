@@ -79,10 +79,7 @@ class RutasController {
         $obj = $this->getController($data['controller']);
         $request['post'] = $_POST;
         $request['get'] = $_GET;
-        var_dump($_GET);
-        var_dump($_GET['path']);
-        var_dump($_SERVER['REQUEST_URI']);
-        var_dump($_POST);exit;
+
         if (!$obj || !$this->callMethod($obj, $data['method'], $request)) {
             echo $this->error && die;
         }
