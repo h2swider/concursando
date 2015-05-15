@@ -3,7 +3,7 @@
 class RegistroController extends Controller {
 
     public function __construct() {
-        
+        parent::__construct();
     }
 
     public function main() {
@@ -23,6 +23,11 @@ class RegistroController extends Controller {
         } else {
             die("No data");
         }
+    }
+
+    public function testConexion() {
+        $registro = new RegistroModel();
+        $registro->doSomething();
     }
 
 }

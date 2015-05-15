@@ -3,3 +3,4 @@
 {"get":{"error":"No existe la ruta 'usuarios\/123123123'"}}
 {"get":{"error":"No existe el metodo 'test3'"}}
 {"get":{"error":"No existe el metodo 'test3'"}}
+{"get":{"error":"No existe el metodo 'test'"}}

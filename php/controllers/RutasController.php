@@ -6,8 +6,8 @@ class RutasController {
     private $rutas;
 
     public function __construct() {
-        require("php/config/config.php");
-        require("Controller.php");
+        require_once("php/config/config.php");
+        require_once("Controller.php");
         $this->rutas = parse_ini_file(ROOT . '/php/config/rutas.ini');
         $this->cargarRutasConfig($_SERVER['REQUEST_URI']);
     }

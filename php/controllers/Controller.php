@@ -5,7 +5,14 @@ class Controller {
     public function __construct() {
 
         function __autoload($className) {
-            include MODELS_PATH . $className . '.php';
+            $paths['model'] = MODELS_PATH . $className . '.php';
+            $paths['controller'] = CONTROLLERS_PATH . $className . '.php';
+
+            foreach ($paths as $path) {
+                if (file_exists($path)) {
+                    include $path;
+                }
+            }
         }
 
     }
