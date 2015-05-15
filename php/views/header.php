@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <link rel="stylesheet" type="css" media="screen" href="<?php echo ASSETS_PATH; ?>css/bootstrap.min.css" />
-        <link rel="stylesheet" type="css" media="screen" href="<?php echo ASSETS_PATH; ?>css/bootstrap-theme.min.css" />
+        <title>Concursando</title>
+        <link href="<?php echo ASSETS_PATH; ?>css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="<?php echo ASSETS_PATH; ?>css/bootstrap-theme.min.css" rel="stylesheet"/>
         <script src="<?php echo ASSETS_PATH; ?>js/jquery.js"></script>
         <script src="<?php echo ASSETS_PATH; ?>js/jquery.md5.js"></script>
         <script src="<?php echo ASSETS_PATH; ?>js/bootstrap.min.js"></script>
