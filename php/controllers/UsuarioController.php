@@ -15,8 +15,8 @@ class UsuarioController extends Controller {
     }
 
     public function printHola($data) {
-        echo "HOLA, los get son:";
-        var_dump($data);
+        echo 1;exit;
+        header('location:/cerror/custom/?error=Este es un error custom');exit;
     }
 
     public function test() {
@@ -24,5 +24,3 @@ class UsuarioController extends Controller {
     }
 
 }
-
-?>

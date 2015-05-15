@@ -73,7 +73,7 @@ class RutasController {
             default:
                 $data['controller'] = 'ErrorController';
                 $data['method'] = 'main';
-                $request['error'] = 'Cantidad de parametros invalida';
+                $request['get']['error'] = 'Cantidad de parametros invalida';
                 break;
         }
         if (!$this->error) {
@@ -85,12 +85,13 @@ class RutasController {
 
             if ($this->error || !$this->callMethod($obj, $data['method'], $request)) {
                 require_once CONTROLLERS_PATH . "ErrorController.php";
-                $data['error'] = $this->error;
+                $data['get']['error'] = $this->error;
+               
                 $this->callMethod(new ErrorController(), 'main', $data);
             }
         } else {
             require_once CONTROLLERS_PATH . "ErrorController.php";
-            $data['error'] = $this->error;
+            $data['get']['error'] = $this->error;
             $this->callMethod(new ErrorController(), 'main', $data);
         }
     }
