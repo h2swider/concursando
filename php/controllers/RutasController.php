@@ -13,16 +13,16 @@ class RutasController {
     }
 
     private function parseUrl($path) {
+
         if (isset($this->rutas[$path])) {
 
             $partsURL = explode("/", $this->rutas[$path]);
             $data['controller'] = $partsURL[0];
             $data['method'] = $partsURL[1];
-
             return $data;
         } else {
             $this->error = "No existe la ruta '$path'";
-            return false;
+            $this->controllerError();
         }
     }
 
@@ -34,11 +34,11 @@ class RutasController {
                 return new $controller();
             } else {
                 $this->error = "No existe la clase '$controller'";
-                return false;
+                $this->controllerError();
             }
         } else {
             $this->error = "No existe el archivo '$path'";
-            return false;
+            $this->controllerError();
         }
     }
 
@@ -47,15 +47,22 @@ class RutasController {
             $obj->$method($params);
         } else {
             $this->error = "No existe el metodo '$method'";
-            return false;
+            $this->controllerError();
         }
     }
 
+    private function controllerError() {
+        require_once CONTROLLERS_PATH . "ErrorController.php";
+        $data = array();
+        $data['get']['error'] = $this->error;
+        $this->callMethod(new ErrorController(), 'main', $data);
+        exit;
+    }
+
     private function cargarRutasConfig($base_url) {
-
-        $partesURL = array_filter(explode("/", explode("?", $base_url)[0]));
+        $foo = explode("?", $base_url);
+        $partesURL = array_filter(explode("/", $foo[0]));
         switch (count($partesURL)) {
-
             case 0:
                 $data = $this->parseUrl("main");
                 break;
@@ -65,35 +72,14 @@ class RutasController {
             case 2:
                 $data = $this->parseUrl($partesURL[1] . "/" . $partesURL[2]);
                 break;
-            case 3:
-                $data = $this->parseUrl($partesURL[1] . "/" . $partesURL[2] . "/@param");
-                $e = explode("/", $base_url);
-                $request['url'] = $e[4];
-                break;
             default:
-                $data['controller'] = 'ErrorController';
-                $data['method'] = 'main';
-                $request['get']['error'] = 'Cantidad de parametros invalida';
+                $data = $this->parseUrl($partesURL[1] . "/" . $partesURL[2] . "/@param");
                 break;
         }
-        if (!$this->error) {
-
-            $obj = $this->getController($data['controller']);
-
-            $request['post'] = $_POST;
-            $request['get'] = $_GET;
-
-            if ($this->error || !$this->callMethod($obj, $data['method'], $request)) {
-                require_once CONTROLLERS_PATH . "ErrorController.php";
-                $data['get']['error'] = $this->error;
-               
-                $this->callMethod(new ErrorController(), 'main', $data);
-            }
-        } else {
-            require_once CONTROLLERS_PATH . "ErrorController.php";
-            $data['get']['error'] = $this->error;
-            $this->callMethod(new ErrorController(), 'main', $data);
-        }
+        $obj = $this->getController($data['controller']);
+        $request['post'] = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+        $request['get'] = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $this->callMethod($obj, $data['method'], $request);
     }
 
 }

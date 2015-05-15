@@ -1,5 +1,9 @@
 <?php
-	class Conexion {
-		
-	}
-?>
+
+class Conexion {
+
+    public function __construct() {
+        
+    }
+
+}

@@ -1,1 +1,1 @@
-<h1><?php echo $data['get']['error'];?></h1>
+<h1>404</h1>
