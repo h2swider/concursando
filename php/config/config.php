@@ -1,3 +1,6 @@
 <?php
-	define("ASSETS_PATH", '/concursando/assets/');
-?>
+
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+define("ASSETS_PATH", '/assets/');
+define("CONTROLLERS_PATH", ROOT.'/php/controllers/');

@@ -1,101 +1,91 @@
 <?php
-
 class RutasController {
+
+    private $error = '';
 
     public function __construct() {
         $this->cargarRutasConfig();
     }
 
+    private function parseUrl($path) {
+
+        $partsURL = explode("/", $path);
+        $data['controller'] = $partsURL[0];
+        $data['method'] = $partsURL[1];
+        return $data;
+    }
+
+    private function getController($controller) {
+        $path = CONTROLLERS_PATH."$controller.php";
+        if (file_exists($path)) {
+            require($path);
+            if (class_exists($controller)) {
+                return new $controller();
+            } else {
+                $this->error = "No existe la clase '$controller'";
+                return false;
+            }
+        } else {
+            $this->error = "No existe el archivo '$path'";
+            return false;
+        }
+    }
+
+    private function callMethod($obj, $method, $params = null) {
+
+        if (method_exists($obj, $method)) {
+            $obj->$method($params);
+        } else {
+            $this->error = "No existe el metodo '$method'";
+            return false;
+        }
+    }
+
     private function cargarRutasConfig() {
-        
+
         require("Controller.php");
         require("php/config/rutas.php");
         require("php/config/config.php");
-        
+
         if (!empty($_GET)) {
             $url = explode("?", $_SERVER['REQUEST_URI']);
             $url = $url[0];
         } else {
             $url = $_SERVER['REQUEST_URI'];
         }
-        
-        $partesURL = array_filter(explode("/", $url));
-        $primerElemento = array_shift($partesURL);
-        $urlLength = count($partesURL);
-        var_dump($partesURL);
-        switch ($urlLength) {
-            
-            case 0:
-                $val = $rutas["main"];
-                $partesURL = explode("/", $val);
-                $controller = $partesURL[0];
-                $method = $partesURL[1];
-                require($controller . ".php");
-                $obj = new $controller();
-                //valido que el metodo exista antes de llamarlo, deberia hacer esto para todas las llamadas a nuevos objetos o metodos.
-                if (method_exists($obj, $method)) {
-                    $obj->$method();
-                }
 
+        $partesURL = array_filter(explode("/", $url));
+        switch (count($partesURL)) {
+
+            case 0:
+                $data = $this->parseUrl($rutas["main"]);
                 break;
             case 1:
-                
-                $val = $rutas[$partesURL[0]];
-                $partesURL = explode("/", $val);
-                $controller = $partesURL[0];
-                $method = $partesURL[1];
-                require($controller . ".php");
-                $obj = new $controller();
-                $data = array();
-                if (!empty($_POST)) {
-                    $data['post'] = $_POST;
-                } else if (!empty($_GET)) {
-                    $data['get'] = $_GET;
-                }
-                if (!empty($data)) {
-                    $obj->$method($data);
-                } else {
-                    $obj->$method();
-                }
+                $data = $this->parseUrl($rutas[$partesURL[1]]);
                 break;
             case 2:
-                
-                $val = $rutas[$partesURL[0] . "/" . $partesURL[1]];
-                $partesURL = explode("/", $val);
-                $controller = $partesURL[0];
-                $method = $partesURL[1];
-                require($controller . ".php");
-                $obj = new $controller();
-                if (!empty($_POST)) {
-                    $data['post'] = $_POST;
-                }
-                if (!empty($_GET)) {
-                    $data['get'] = $_GET;
-                }
-                $obj->$method($data);
+                $data = $this->parseUrl($rutas[$partesURL[1] . "/" . $partesURL[2]]);
                 break;
             case 3:
-                
-                $objectData = explode("/", $rutas[$partesURL[0] . "/" . $partesURL[1] . "/@param"]);
-                $e = explode("/", $_SERVER['REQUEST_URI']);
-                $data['url'] = $e[4];
-                $controller = $objectData[0];
-                $method = $objectData[1];
-                require($controller . ".php");
-                $obj = new $controller();
-                if (!empty($_POST)) {
-                    $data['post'] = $_POST;
-                }
-                if (!empty($_GET)) {
-                    $data['get'] = $_GET;
-                }
-                $obj->$method($data);
+                $data = $this->parseUrl($rutas[$partesURL[1] . "/" . $partesURL[2] . "/@param"]);
+                $partsRequest = explode("/", $_SERVER['REQUEST_URI']);
+                $request['url'] = $e[4];
+                break;
+            default:
+                //Error todo
                 break;
         }
-    }
-    
-    private function a(){
-        
+
+        $obj = $this->getController($data['controller']);
+        $request['post'] = $_POST;
+        $request['get'] = $_GET;
+        var_dump($_GET);
+        var_dump($_GET['path']);
+        var_dump($_SERVER['REQUEST_URI']);
+        var_dump($_POST);exit;
+        if (!$obj || !$this->callMethod($obj, $data['method'], $request)) {
+            echo $this->error && die;
+        }
     }
 
 }
