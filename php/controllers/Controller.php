@@ -6,11 +6,8 @@ class Controller {
         
     }
 
-    public function cargarVista($url_template, $data = '') {
-        require_once("php/config/config.php");
-        require("php/views/" . $url_template);
+    public function cargarVista($url_template, $data = null) {
+        require( VIEWS_PATH . $url_template);
     }
 
 }
-
-?>
