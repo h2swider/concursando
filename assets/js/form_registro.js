@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	$("#register").submit(function() {
-		$("#password").val($.md5($("#password").val()));
+		var error = false;
+		if ($("#password").val() != '') { 
+			$("#password").val($.md5($("#password").val()));
+		} else {
+			error = true;
+		}
 	})
 })

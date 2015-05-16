@@ -2,9 +2,9 @@
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h1>Registro de usuario</h1>
-			<form id="register" role="form" method="POST" action="registro/registrar-usuario/">
+			<form id="register" role="form" method="POST" action="/registro/registrar-usuario/">
 				<div class="form-group">
-					 <label for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="email" name="email" />
+					 <label for="exampleInputEmail1">Usuario</label><input type="email" class="form-control" id="email" name="email" value="<?php echo $data['post']['email']; ?>" />
 				</div>
 				<div class="form-group">
 					 <label for="exampleInputPassword1">Password</label><input type="password" class="form-control" id="password" name="password" />
@@ -14,4 +14,3 @@
 		</div>
 	</div>
 </div>
-<script src="<?php echo ASSETS_PATH; ?>/js/form_registro.js"></script>

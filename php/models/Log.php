@@ -15,7 +15,7 @@ class Log {
 
     public static function error($data) {
 
-        file_put_contents(ROOT . '/logs/error.txt', json_encode($data)."\n", FILE_APPEND);
+        file_put_contents(ROOT . '/logs/error.txt', "[".date('Y-m-d H:i:s')." / ".$_SERVER['REMOTE_ADDR']."] ".json_encode($data)."\n", FILE_APPEND);
     }
 
 }
