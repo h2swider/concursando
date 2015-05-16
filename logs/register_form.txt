@@ -1,0 +1,7 @@
+[2015-05-16 08:14:35 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 08:14:35 / 127.0.0.1] "El string no es md5"
+[2015-05-16 08:14:35 / 127.0.0.1] "El campo email es requerido."
+[2015-05-16 08:14:35 / 127.0.0.1] "El campo password es requerido."
+[2015-05-16 08:14:35 / 127.0.0.1] "El campo nombre es requerido."
+[2015-05-16 08:14:35 / 127.0.0.1] "El campo apellido es requerido."
+[2015-05-16 08:14:35 / 127.0.0.1] "El campo fecha_nacimiento es requerido."

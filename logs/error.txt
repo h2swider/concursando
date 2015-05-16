@@ -10,3 +10,20 @@
 {"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
 {"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
 {"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
+[2015-05-16 04:22:20 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-16 05:14:52 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 05:14:52 / 127.0.0.1] "El string no es md5"
+[2015-05-16 05:14:58 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 05:14:58 / 127.0.0.1] "El string no es md5"
+[2015-05-16 05:14:59 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 05:14:59 / 127.0.0.1] "El string no es md5"
+[2015-05-16 05:15:31 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 05:15:31 / 127.0.0.1] "El string no es md5"
+[2015-05-16 05:18:33 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 05:18:33 / 127.0.0.1] "El string no es md5"
+[2015-05-16 05:59:28 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 05:59:28 / 127.0.0.1] "El string no es md5"
+[2015-05-16 05:59:34 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 05:59:34 / 127.0.0.1] "El string no es md5"
+[2015-05-16 06:00:20 / 127.0.0.1] "Mail incorrecto"
+[2015-05-16 06:00:20 / 127.0.0.1] "El string no es md5"

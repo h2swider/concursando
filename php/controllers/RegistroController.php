@@ -8,33 +8,40 @@ class RegistroController extends Controller {
     }
 
     public function main($data = null) {
+		$paises = new PaisModel();
+		$data['paises'] = $paises->getPaises();
         parent::cargarVista('header.php');
         parent::cargarVista('form_registro.php', $data);
-        parent::cargarVista('footer.php');
+        parent::cargarVista('footer.php', get_class());
     }
 
     public function procesarRegistro($data = '') {
-        if (!filter_var($data['post']['email'], FILTER_VALIDATE_EMAIL)) {
-			$this->error = 'Mail incorrecto';
-			Log::error($this->error);
-        }
-        if (!preg_match('/^[a-f0-9]{32}$/', $data['post']['password'])) {
-			$this->error = "El string no es md5";
-			Log::error($this->error);
-		}
-		
+        parent::validarEmail($data['post']['email']);
+		parent::validarPassword($data['post']['password']);
+		parent::validarRequerido($data['post']['email'], "email");
+		parent::validarRequerido($data['post']['password'], "password");
+		parent::validarRequerido($data['post']['nombre'], "nombre");
+		parent::validarRequerido($data['post']['apellido'], "apellido");
+		parent::validarRequerido($data['post']['fecha_nacimiento'], "fecha_nacimiento");
+		parent::validarFechaNacimiento($data['post']['fecha_nacimiento']);
 		if ($this->error) {
 			$this->main($data);
 		} else {
 			$this->registrarUsuario($data);
 		}
     }
+	
+	public function validarUsuario($data) {
+		$usuario = new UserModel();
+		echo json_encode($usuario->valid($data['post']['email']));
+	}
+	
+	public function errorRegistro() {
+		$this->main();
+	}
 
     public function registrarUsuario($data) {
         $usuario = new UserModel();
-        $usuario->setUsuario($data['post']['mail']);
-		$usuario->setClave($data['post']['password']);
-		$usuario->guardarUsuario();
+		$usuario->guardarUsuario($data['post']);
     }
-
 }

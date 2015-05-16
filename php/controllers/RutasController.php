@@ -77,8 +77,8 @@ class RutasController {
                 break;
         }
         $obj = $this->getController($data['controller']);
-        $request['post'] = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
-        $request['get'] = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $request['post'] = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $request['get'] = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
         $this->callMethod($obj, $data['method'], $request);
     }
 

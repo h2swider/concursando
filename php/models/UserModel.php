@@ -2,87 +2,48 @@
 
 class UserModel {
     private $conexion;
-	private $email;
-	private $clave;
-	private $pais;
-	private $apellido;
-	private $fecha_nacimiento;
-	private $id_usuario;
-	private $fecha_alta;
 
     public function __construct() {
         $this->conexion = Conexion::getInstance()->conex;
     }
 
-    public function guardarUsuario() {
-		$query = $this->conexion->prepare($sql);
-		$query->bindParam(":s", $habilitado, PDO::PARAM_STR);
-		$query->execute();
-		$result = $query->fetchAll(PDO::FETCH_ASSOC);
+    public function guardarUsuario($data) {
+		try {
+			$fecha_alta = date('Y-m-d H:i:s');
+			$fecha_nacimiento = new DateTime(str_replace('/', '-', $data['fecha_nacimiento']));
+			$fecha_nacimiento = $fecha_nacimiento->format('Y-m-d H:i:s');
+			$sql = "INSERT INTO usuario (email, f_alta, pass, id_pais, nombre, apellido, f_nacimiento) VALUES (:e, :fa, :p, :idp, :n, :a, :fn)";
+			$query = $this->conexion->prepare($sql);
+			$query->bindParam(":e", $data['email'], PDO::PARAM_STR);
+			$query->bindParam(":fa", $fecha_alta, PDO::PARAM_STR);
+			$query->bindParam(":p", $data['password'], PDO::PARAM_STR);
+			$query->bindParam(":idp", $data['pais'], PDO::PARAM_INT);
+			$query->bindParam(":n", $data['nombre'], PDO::PARAM_STR);
+			$query->bindParam(":a", $data['apellido'], PDO::PARAM_STR);
+			$query->bindParam(":fn", $fecha_nacimiento, PDO::PARAM_STR);
+			$query->execute();
+		} catch (PDOException $e) {
+			Log::base($e->getMessage());
+			header("Location: /registro/error-registro");
+			exit;
+		} catch (Exception $e) {
+			Log::base($e->getMessage());
+			header("Location: /registro/error-registro");
+			exit;
+		}
     }
 	
-	public function setUsuario($email) {
-		$this->email = $email;
+	public function valid($email) {
+		try {
+			$sql = "SELECT 1 FROM usuario WHERE email = :e";
+			$query = $this->conexion->prepare($sql);
+			$query->bindParam(":e", $email, PDO::PARAM_STR);
+			$query->execute();
+			return !$query->rowCount();
+		} catch (PDOException $e) {
+			Log::base($e->getMessage());
+		} catch (Exception $e) {
+			Log::base($e->getMessage());
+		}
 	}
-	
-	public function setClave($clave) {
-		$this->clave = $clave;
-	}
-	
-	public function getClave() {
-		return $this->clave;
-	}
-	
-	public function getUsuario() {
-		return $this->email;
-	}
-	
-	public function getApellido() {
-		return $this->apellido;
-	}
-	
-	public function setApellido($apellido) {
-		$this->apellido = $apellido;
-	}
-	
-	public function setNombre($nombre) {
-		$this->nombre = $nombre;
-	}
-	
-	public function getNombre() {
-		return $this->nombre;
-	}
-	
-	public function setFechaAlta($fecha_alta) {
-		$this->fecha_alta = $fecha_alta;
-	}
-	
-	public function getFechaAlta() {
-		return $this->fecha_alta;
-	}
-	
-	public function getFechaNacimiento() {
-		return $this->fecha_nacimiento;
-	}
-	
-	public function setFechaNacimiento($fecha_nacimiento) {
-		$this->fecha_nacimiento = $fecha_nacimiento;
-	}
-	
-	public function setPais($pais) {
-		$this->pais = $pais;
-	}
-	
-	public function getPais() {
-		return $this->pais;
-	}
-	
-	public function setIdUsuario($id_usuario) {
-		$this->id_usuario = $id_usuario;
-	}
-	
-	public function getIdUsuario() {
-		return $this->id_usuario;
-	}
-
 }
