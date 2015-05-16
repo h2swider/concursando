@@ -21,6 +21,12 @@
 				</div>
 				<div class="form-group">
 					<div class="input-group">
+						<label class="control-label input-group-addon" for="password">Repetir Contrase&ntilde;a</label>
+						<input type="password" class="form-control" id="password2" name="password2" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
 						<label class="input-group-addon control-label"  for="paises">Pa&iacute;s</label>
 						<select id="paises" name="pais" class="form-control">
 							<option value=''>Seleccionar Pa&iacute;s...</option>

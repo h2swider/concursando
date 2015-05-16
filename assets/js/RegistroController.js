@@ -25,6 +25,12 @@ var particular = {
 			return true;
 		}
 	},
+	validatePasswords: function(p) {
+		if (!particular.validateRequire($(p[0])) && !particular.validateRequire($(p[1]))) {
+			return $(p[0]).val() != $(p[1]).val() ? true : false;
+		} 
+		return true;
+	},
 	validUser: function(campo, callback) {
 		$.ajax({
 			type: "POST",
@@ -94,6 +100,14 @@ var particular = {
 			} else {
 				particular.addSuccess($(this));
 			};
+		});
+		$("input[type='password']").on("blur", function(evt) {
+			if (particular.validatePasswords($("input[type='password']"))) {
+				particular.addError($("input[type='password']"));
+			} else {
+				particular.addSuccess($("input[type='password']"));
+				
+			}
 		})
 	},
 	validarForm: function() {
