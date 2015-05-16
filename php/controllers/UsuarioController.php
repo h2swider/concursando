@@ -7,7 +7,7 @@ class UsuarioController extends Controller {
     }
 
     public function main() {
-        
+        echo 3;
     }
 
     public function panelUsuario($data = '') {

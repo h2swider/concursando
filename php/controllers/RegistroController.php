@@ -9,7 +9,7 @@ class RegistroController extends Controller {
     public function main() {
         parent::cargarVista('header.php');
         parent::cargarVista('form_registro.php');
-        parent::cargarVista('footer.php');
+        parent::cargarVista('footer.php', get_class());
     }
 
     public function procesarRegistro($data = '') {

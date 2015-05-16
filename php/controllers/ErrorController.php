@@ -10,7 +10,7 @@ class ErrorController extends Controller {
         Log::error($data);
         parent::cargarVista('header.php');
         parent::cargarVista('error.php');
-        parent::cargarVista('footer.php');
+        parent::cargarVista('footer.php', get_class());
     }
 
 }
