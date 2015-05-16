@@ -16,14 +16,15 @@ class RegistroController extends Controller {
     }
 
     public function procesarRegistro($data = '') {
-        parent::validarEmail($data['post']['email']);
-		parent::validarPassword($data['post']['password']);
-		parent::validarRequerido($data['post']['email'], "email");
-		parent::validarRequerido($data['post']['password'], "password");
-		parent::validarRequerido($data['post']['nombre'], "nombre");
-		parent::validarRequerido($data['post']['apellido'], "apellido");
-		parent::validarRequerido($data['post']['fecha_nacimiento'], "fecha_nacimiento");
-		parent::validarFechaNacimiento($data['post']['fecha_nacimiento']);
+        $this->error = parent::validarEmail($data['post']['email']);
+		$this->error = parent::validarPassword($data['post']['password']);
+		$this->error = parent::validarRequerido($data['post']['email'], "email");
+		$this->error = parent::validarRequerido($data['post']['password'], "password");
+		$this->error = parent::validarRequerido($data['post']['nombre'], "nombre");
+		$this->error = parent::validarRequerido($data['post']['apellido'], "apellido");
+		$this->error = parent::validarRequerido($data['post']['fecha_nacimiento'], "fecha_nacimiento");
+		$this->error = parent::validarFechaNacimiento($data['post']['fecha_nacimiento']);
+		$this->error = parent::validarClaves($data['post']['password'], $data['post']['password2']);
 		if ($this->error) {
 			$this->main($data);
 		} else {

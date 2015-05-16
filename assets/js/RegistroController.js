@@ -111,7 +111,6 @@ var particular = {
 		})
 	},
 	validarForm: function() {
-		
 		$("form").submit(function (event) {
 			event.preventDefault();
 			particular.error = [];
@@ -122,6 +121,7 @@ var particular = {
 			var $this = $(this);
 			if (!particular.error.length) {
 				$("#password").val($.md5($("#password").val()));
+				$("#password2").val($.md5($("#password2").val()));
 				particular.validUser($("#email"), function(val) {
 					if (val == 'false') {
 						$("#invalid-user").removeClass("hidden");
