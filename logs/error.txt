@@ -4,3 +4,9 @@
 {"get":{"error":"No existe el metodo 'test3'"}}
 {"get":{"error":"No existe el metodo 'test3'"}}
 {"get":{"error":"No existe el metodo 'test'"}}
+{"get":{"error":"No existe la ruta 'usuarios\/ghfg'"}}
+{"get":{"error":"No existe la ruta 'registro\/test-conexion\/@param'"}}
+{"get":{"error":"No existe la ruta 'usuario\/test'"}}
+{"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
+{"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
+{"get":{"error":"No existe la ruta 'assets\/\/@param'"}}

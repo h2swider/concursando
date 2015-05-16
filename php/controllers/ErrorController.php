@@ -11,6 +11,7 @@ class ErrorController extends Controller {
         parent::cargarVista('header.php');
         parent::cargarVista('error.php');
         parent::cargarVista('footer.php');
+        parent::cargarVista('footer.php', get_class());
     }
 
 }
