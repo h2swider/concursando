@@ -50,9 +50,11 @@ class RegistroController extends Controller {
 
     public function registrarUsuario($data) {
         $usuario = new UserModel();
+        $estado = new EstadoModel();
         $data['post']['f_alta'] = date('Y-m-d H:i:s');
         $data['post']['password'] = md5($data['post']['password'] . SALT);
         $userID = $usuario->guardarUsuario($data['post']);
+        $estadoID = $estado->insertUsuarioEstado($userID, EstadoModel::CONFIRMAR);
         if ($userID) {
             Mail::registro($data['post']['email'], md5($data['post']['f_alta'].SALT));
         }
