@@ -1,0 +1,2 @@
+- mostrar error y validaciones del tipo de no requerido.
+- solo letras en nombre y en apellido

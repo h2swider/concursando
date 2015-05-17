@@ -60,5 +60,20 @@ class Controller {
 		}
 		return false;
 	}
+	
+	protected function validarLargo($input, $clave, $length) {
+		if (strlen($input) >$length) {
+			Log::form("El campo ".$clave." es mayor a ".$length.". Valor otorgado: ".$input);
+		}
+		return false;
+	}
+	
+	protected function validarString($input, $clave) {
+		if (!filter_var($input, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-záéíóúñ]+$/i")))) {
+			Log::form("El valor de ".$clave." no puede ser vacio ni contener caracteres especiales");
+			return true;
+		}
+		return false;
+	}
 
 }

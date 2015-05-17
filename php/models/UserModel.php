@@ -12,6 +12,9 @@ class UserModel {
 			$fecha_alta = date('Y-m-d H:i:s');
 			$fecha_nacimiento = new DateTime(str_replace('/', '-', $data['fecha_nacimiento']));
 			$fecha_nacimiento = $fecha_nacimiento->format('Y-m-d H:i:s');
+			$data['nombre'] = strtolower($data['nombre']);
+			$data['apellido'] = strtolower($data['apellido']);
+			$data['email'] = strtolower($data['email']);
 			$sql = "INSERT INTO usuario (email, f_alta, pass, id_pais, nombre, apellido, f_nacimiento) VALUES (:e, :fa, :p, :idp, :n, :a, :fn)";
 			$query = $this->conexion->prepare($sql);
 			$query->bindParam(":e", $data['email'], PDO::PARAM_STR);

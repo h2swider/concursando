@@ -13,13 +13,34 @@ var particular = {
 	},
 	validateEmail: function(campo) {
 		var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-		return regex.test(campo.val());
+		if (regex.test(campo.val())) {
+			$("#invalid-mail").addClass("hidden");
+			return false;
+		} else {
+			$("#invalid-mail").removeClass("hidden");
+			return true;
+		}
+	},
+	validateString: function(campo) {
+		var regexp = /^[A-Za-záéíóúñÑÁÉÍÓÚ]+$/;
+		if (regexp.test(campo.val())) {
+			return false;
+		}
+		return true;
+		return false;
 	},
 	validateFecha: function(campo) {
 		if (!particular.validateRequire(campo)) {
 			var date = new Date();
 			var dateParts = campo.val().split("/");
 			var givenDate = new Date(dateParts[2], parseInt(dateParts[1])-1, dateParts[0]);
+			if (givenDate > date) {
+				$("#invalid-fecha_nacimiento").removeClass("hidden");
+				return true;
+			} else {
+				$("#invalid-fecha_nacimiento").addClass("hidden");
+				return false;
+			}
 			return givenDate > date ? true : false;
 		} else {
 			return true;
@@ -27,7 +48,12 @@ var particular = {
 	},
 	validatePasswords: function(p) {
 		if (!particular.validateRequire($(p[0])) && !particular.validateRequire($(p[1]))) {
-			return $(p[0]).val() != $(p[1]).val() ? true : false;
+			if  ($(p[0]).val() != $(p[1]).val()) {
+				$("#invalid-passwords").removeClass("hidden");
+				return true;
+			}
+			$("#invalid-passwords").addClass("hidden");
+			return false;
 		} 
 		return true;
 	},
@@ -62,18 +88,29 @@ var particular = {
 		}
 	},
 	validateAtMoment: function() {
-		$("form input:not(.datepicker):not(input[type='email'])").each(function() {
-			$(this).on("blur", function(evt) {
-				if (particular.validateRequire($(this))) {
-					particular.addError($(this));
-				} else {
-					particular.addSuccess($(this));
-				}
-			});
+		$("form input:not(.datepicker):not(input[type='email'])").on("blur", function(evt) {
+			if (particular.validateRequire($(this))) {
+				
+				particular.addError($(this));
+			} else {
+				particular.addSuccess($(this));
+			}
 		});
+		
+		$("form input[type='text']").on("blur", function(evt) {
+			var errorSelector = $("#invalid-"+$(this).attr("id"));
+			if (particular.validateString($(this))) {
+				particular.addError($(this));
+				errorSelector.removeClass("hidden");
+			} else {
+				particular.addSuccess($(this));
+				errorSelector.addClass("hidden");
+			};
+		})
+		
 		$("form input[type='email']").on("blur", function(evt) {
 			var $this = $(this);
-			if (!particular.validateEmail($(this))) {
+			if (particular.validateEmail($(this))) {
 				particular.addError($(this));
 			} else {
 				particular.validUser($(this), function(val) {
