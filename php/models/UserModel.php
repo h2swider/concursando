@@ -10,7 +10,7 @@ class UserModel {
 
     public function guardarUsuario($data) {
         try {
-            $fecha_alta = date('Y-m-d H:i:s');
+            
             $fecha_nacimiento = new DateTime(str_replace('/', '-', $data['fecha_nacimiento']));
             $fecha_nacimiento = $fecha_nacimiento->format('Y-m-d H:i:s');
             $data['nombre'] = strtolower($data['nombre']);
@@ -20,7 +20,7 @@ class UserModel {
             
             $query = $this->conexion->prepare($sql);
             $query->bindParam(":e", $data['email'], PDO::PARAM_STR);
-            $query->bindParam(":fa", $fecha_alta, PDO::PARAM_STR);
+            $query->bindParam(":fa", $data['f_alta'], PDO::PARAM_STR);
             $query->bindParam(":p", $data['password'], PDO::PARAM_STR);
             $query->bindParam(":idp", $data['pais'], PDO::PARAM_INT);
             $query->bindParam(":n", $data['nombre'], PDO::PARAM_STR);

@@ -13,5 +13,9 @@ class UsuarioController extends Controller {
     public function panelUsuario($data = '') {
         var_dump($data);
     }
+    
+    public function confirmar($data){
+        var_dump($data['url']);
+    }
 
 }

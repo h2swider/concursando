@@ -1,5 +1,5 @@
 <?php
-
+define(SALT, '¡c0ncurs4nd0!');
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 define("ASSETS_PATH", '/assets/');

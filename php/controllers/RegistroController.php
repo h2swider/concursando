@@ -3,7 +3,6 @@
 class RegistroController extends Controller {
 
     private $errors = array();
-    private $salt = '¡c0ncurs4nd0!';
 
     public function __construct() {
         parent::__construct();
@@ -31,10 +30,8 @@ class RegistroController extends Controller {
         $this->error[] = parent::validarLargo($data['post']['apellido'], 'apellido', 45);
         $this->error[] = parent::validarString($data['post']['nombre'], 'nombre');
         $this->error[] = parent::validarString($data['post']['apellido'], 'apellido');
-        $this->error[] = parent::validarClaves(md5($data['post']['password'] . $this->salt), md5($data['post']['password2'] . $this->salt));
-        
-        var_dump($this->error);
-        
+        $this->error[] = parent::validarClaves(md5($data['post']['password'] . SALT), md5($data['post']['password2'] . SALT));
+       
         if (in_array(true, $this->error)) {
             $this->main($data);
         } else {
@@ -53,9 +50,11 @@ class RegistroController extends Controller {
 
     public function registrarUsuario($data) {
         $usuario = new UserModel();
-        $data['post']['password'] = md5($data['post']['password'] . $this->salt);
-        if ($usuario->guardarUsuario($data['post'])) {
-            Mail::registro($data['post']['email']);
+        $data['post']['f_alta'] = date('Y-m-d H:i:s');
+        $data['post']['password'] = md5($data['post']['password'] . SALT);
+        $userID = $usuario->guardarUsuario($data['post']);
+        if ($userID) {
+            Mail::registro($data['post']['email'], md5($data['post']['f_alta'].SALT));
         }
     }
 

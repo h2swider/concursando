@@ -17,14 +17,25 @@ class Mail {
         ;
     }
 
-    public static function registro($to) {
-        
-        var_dump($to);
-        $headers = 'From: registro@concursando.com.ar' . " " .
+    public static function registro($to, $token) {
+
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n" .
+                'From: registro@concursando.com.ar' . " " .
                 'Reply-To: registro@concursando.com.ar' . " ";
 
-        //mail($to, 'Este es el asunto', 'Este es el mensaje', $headers, '-fuser@yourdomain.com');
-        var_dump(mail($to, 'Este es el asunto', 'Este es el mensaje', $headers/*, '-fuser@yourdomain.com'*/));
+        $asunto = "Confirmar cuenta en Concursando";
+        $message = "
+<html>
+<head>
+<title>$asunto</title>
+</head>
+<body>
+<p>Haga click en el siguiente enlace para confirmar su cuenta en Concursando <a href='http://concursando.com.ar/usuario/confirmar/$token' alt='Confirmar'>Confirmar</a></p>
+</html>
+";
+
+        mail($to, $asunto, $message, $headers);
     }
 
 }
