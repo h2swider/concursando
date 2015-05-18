@@ -48,9 +48,10 @@ class RegistroController extends Controller {
         $this->main();
     }
 
-    public function sucess() {
+    public function sucess($data) {
+        $data['msg'] = 'Su cuenta <strong>'.$data['url'].'</strong> fue creada con exito, el siguiente paso es confirmar el mail.';  
         parent::cargarVista('header.php');
-        parent::cargarVista('exito_crear.php');
+        parent::cargarVista('form_login.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
 
@@ -63,7 +64,7 @@ class RegistroController extends Controller {
         $estadoID = $estado->insertUsuarioEstado($userID, EstadoModel::CONFIRMAR);
         if ($userID && $estadoID) {
             Mail::registro($data['post']['email'], $userID . "-" . md5($data['post']['f_alta'] . SALT));
-            header("Location: /registro/exito");
+            header("Location: /registro/exito/{$data['post']['email']}");
             exit;
         } else {
             header("Location: /registro/error-registro");
