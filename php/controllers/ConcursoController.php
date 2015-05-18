@@ -10,5 +10,3 @@ class ConcursoController extends Controller {
     }
 
 }
-
-?>

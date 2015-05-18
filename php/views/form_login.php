@@ -3,6 +3,8 @@
         <div class="col-xs-12 column">
             <h1>Login</h1>
             <div class="alert alert-info <?php echo !isset($data['msg'])?'hidden':null?>"><?php echo isset($data['msg'])?$data['msg']:null?></div>
+            <div class="alert alert-success <?php echo !isset($data['confirmed'])?'hidden':null?>"><?php echo isset($data['confirmed'])?$data['confirmed']:null?></div>
+            <div class="alert alert-danger <?php echo !isset($data['error'])?'hidden':null?>"><?php echo isset($data['error'])?$data['error']:null?></div>
             <form role="form" id="login" method="POST" action="/login/login-usuario/">
                 <div class="form-group">
                     <div class="input-group">

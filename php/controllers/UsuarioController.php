@@ -24,11 +24,13 @@ class UsuarioController extends Controller {
         } else {
             parent::cargarVista('token_expirado.php');
         }
-        parent::cargarVista('footer.php');
+        parent::cargarVista('footer.php', get_class());
     }
 
     public function changePassword($data) {
-        var_dump($data);
+        parent::cargarVista('header.php');
+        parent::cargarVista('cambiar_clave.php', $data);
+        parent::cargarVista('footer.php', get_class());
     }
 
 }

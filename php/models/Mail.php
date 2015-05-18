@@ -25,15 +25,14 @@ class Mail {
                 'Reply-To: registro@concursando.com.ar' . " ";
 
         $asunto = "Confirmar cuenta en Concursando";
-        $message = "<html>
-<head>
-<title>$asunto</title>
-</head>
-<body>
-<p>Haga click en el siguiente enlace para confirmar su cuenta en Concursando <a href='http://concursando.com.ar/usuario/confirmar/$token' alt='Confirmar'>Confirmar</a></p>
-</body>
-</html>
-";
+        $message = "<html>" .
+                "<head>" .
+                "<title>$asunto</title>" .
+                "</head>" .
+                "<body>" .
+                "<p>Haga click en el siguiente enlace para confirmar su cuenta en Concursando <a href='http://concursando.com.ar/registro/confirmar/$token' alt='Confirmar'>Confirmar</a></p>" .
+                "</body>" .
+                "</html>";
 
         mail($to, $asunto, $message, $headers);
     }
@@ -45,13 +44,12 @@ class Mail {
                 'Reply-To: recovery@concursando.com.ar' . " ";
 
         $asunto = "Recuperar clave en Concursando";
-        $message = "
-			<html>
-				<head><title>$asunto</title></head>
-				<body>
-					<p>Haga click en el siguiente enlace para recuperar su clave <a href='http://concursando.com.ar/usuario/cambiar-clave/$token' alt='Recuperar'>Recuperar</a></p>
-				</body>
-			</html>";
+        $message = "<html>" .
+                "<head><title>$asunto</title></head>" .
+                "<body>" .
+                "<p>Haga click en el siguiente enlace para recuperar su clave <a href='http://concursando.com.ar/recuperar/cambiar-clave/$token' alt='Recuperar'>Recuperar</a></p>" .
+                "</body>" .
+                "</html>";
         mail($to, $asunto, $message, $headers);
     }
 

@@ -71,5 +71,19 @@ class RegistroController extends Controller {
             exit;
         }
     }
+    
+    public function confirm($data) {
+        $estado = new EstadoModel();
+        $id_usuario = $estado->confirmarUsuario($data['url']);
+        if ($id_usuario) {
+            $estado->insertUsuarioEstado($id_usuario, EstadoModel::HABILITADO);
+            header("Location: /login/cuenta-confirmada");
+            exit;
+        } else {
+           header("Location: /login/error-confirmar");
+            exit;
+        }
+        
+    }
 
 }

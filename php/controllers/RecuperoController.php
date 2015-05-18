@@ -41,5 +41,11 @@ class RecuperoController extends Controller {
         parent::cargarVista('form_login.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
+    
+    public function changePassword($data) {
+        parent::cargarVista('header.php');
+        parent::cargarVista('cambiar_clave.php', $data);
+        parent::cargarVista('footer.php', get_class());
+    }
 
 }
