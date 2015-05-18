@@ -20,7 +20,7 @@
 			$userID = $user->existsEmail($data['post']['email']);
 			if ($userID) {
 				$token = $user->recovery($userID);
-				Mail::registro($data['post']['email'], $userID."-".$token);
+				Mail::recovery($data['post']['email'], $userID."-".$token);
 			} else {
 				header("Location: /recuperar-clave/");
 				exit;

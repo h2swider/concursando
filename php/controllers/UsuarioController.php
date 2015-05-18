@@ -26,5 +26,9 @@ class UsuarioController extends Controller {
 		}
 		parent::cargarVista('footer.php');
     }
+	
+	public function changePassword($data) {
+		var_dump($data);
+	}
 
 }

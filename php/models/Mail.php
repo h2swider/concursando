@@ -55,6 +55,11 @@ class Mail {
 					<p>Haga click en el siguiente enlace para recuperar su clave <a href='http://concursando.com.ar/usuario/cambiar-clave/$token' alt='Recuperar'>Recuperar</a></p>
 				</body>
 			</html>";
+		var_dump($to);
+		var_dump($asunto);
+		var_dump($message);
+		var_dump($headers);
+		mail($to, $asunto, $message, $headers);
 	}
 
 }
