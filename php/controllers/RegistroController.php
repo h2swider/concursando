@@ -41,7 +41,7 @@ class RegistroController extends Controller {
 
     public function validarUsuario($data) {
         $usuario = new UserModel();
-        echo json_encode($usuario->valid($data['post']['email']));
+        echo json_encode(!$usuario->existsEmail($data['post']['email']));
     }
 
     public function errorRegistro() {
@@ -56,8 +56,11 @@ class RegistroController extends Controller {
         $userID = $usuario->guardarUsuario($data['post']);
         $estadoID = $estado->insertUsuarioEstado($userID, EstadoModel::CONFIRMAR);
         if ($userID) {
-            Mail::registro($data['post']['email'], md5($data['post']['f_alta'].SALT));
-        }
+            Mail::registro($data['post']['email'], $userID."-".md5($data['post']['f_alta'].SALT));
+        } else {
+			header("Location: /registro/error-registro");
+            exit;
+		}
     }
 
 }

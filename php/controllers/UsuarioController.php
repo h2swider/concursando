@@ -15,7 +15,16 @@ class UsuarioController extends Controller {
     }
     
     public function confirmar($data){
-        var_dump($data['url']);
+		$estado = new EstadoModel();
+		$id_usuario = $estado->confirmarUsuario($data['url']);
+		parent::cargarVista('header.php');
+		if ($id_usuario) {
+			$estado->insertUsuarioEstado($id_usuario, EstadoModel::HABILITADO);
+			parent::cargarVista('confirmacion_exitosa.php');
+		} else {
+			parent::cargarVista('token_expirado.php');
+		}
+		parent::cargarVista('footer.php');
     }
 
 }

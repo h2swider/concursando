@@ -1,29 +1,83 @@
-{"get":{"error":"No existe la ruta 'usuarios\/123123123'"}}\n{"get":{"error":"No existe la ruta 'usuarios\/123123123'"}}\n{"get":{"error":"No existe la ruta 'usuarios\/123123123'"}}\n{"get":{"error":"No existe la ruta 'usuarios\/123123123'"}}
-{"get":{"error":"No existe la ruta 'usuarios\/123123123'"}}
-{"get":{"error":"No existe la ruta 'usuarios\/123123123'"}}
-{"get":{"error":"No existe el metodo 'test3'"}}
-{"get":{"error":"No existe el metodo 'test3'"}}
-{"get":{"error":"No existe el metodo 'test'"}}
-{"get":{"error":"No existe la ruta 'usuarios\/ghfg'"}}
-{"get":{"error":"No existe la ruta 'registro\/test-conexion\/@param'"}}
-{"get":{"error":"No existe la ruta 'usuario\/test'"}}
-{"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
-{"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
-{"get":{"error":"No existe la ruta 'assets\/\/@param'"}}
-[2015-05-16 04:22:20 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
-[2015-05-16 05:14:52 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 05:14:52 / 127.0.0.1] "El string no es md5"
-[2015-05-16 05:14:58 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 05:14:58 / 127.0.0.1] "El string no es md5"
-[2015-05-16 05:14:59 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 05:14:59 / 127.0.0.1] "El string no es md5"
-[2015-05-16 05:15:31 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 05:15:31 / 127.0.0.1] "El string no es md5"
-[2015-05-16 05:18:33 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 05:18:33 / 127.0.0.1] "El string no es md5"
-[2015-05-16 05:59:28 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 05:59:28 / 127.0.0.1] "El string no es md5"
-[2015-05-16 05:59:34 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 05:59:34 / 127.0.0.1] "El string no es md5"
-[2015-05-16 06:00:20 / 127.0.0.1] "Mail incorrecto"
-[2015-05-16 06:00:20 / 127.0.0.1] "El string no es md5"
+[2015-05-17 23:40:28 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:40:29 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:40:29 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:40:50 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:42:20 / 127.0.0.1] {"get":{"error":"No existe la ruta 'usuarios\/confirmar\/@param'"}}
+[2015-05-17 23:42:20 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:59:42 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:59:54 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:59:54 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:59:55 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:59:55 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-17 23:59:55 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:07:46 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:07:48 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:08:00 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:08:38 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:08:48 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:08:54 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:14:17 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:14:37 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:15:13 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:15:23 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:15:43 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:15:49 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:15:58 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:16:25 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:16:37 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:16:38 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login'"}}
+[2015-05-18 00:16:38 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:17:51 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:18:01 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:19:00 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:19:38 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:29:31 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:29:31 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:29:38 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:29:38 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:30:02 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:30:02 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:30:48 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:30:48 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:30:51 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:30:51 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:30:57 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:30:57 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:31:18 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:31:18 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:31:29 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:31:29 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:33:08 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:33:41 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:33:47 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:33:50 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:33:56 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:34:01 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:34:01 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:35:00 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:35:00 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:35:28 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:35:28 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:35:45 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/login-usuario'"}}
+[2015-05-18 00:35:45 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:42:36 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:42:40 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:42:43 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:42:53 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:43:00 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:43:39 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:44:42 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:45:23 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:47:26 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:50:03 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 00:50:53 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:10:54 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:11:05 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:11:24 / 127.0.0.1] {"get":{"error":"No existe la ruta 'login\/invalid-user'"}}
+[2015-05-18 01:11:24 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:32:35 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:34:01 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:34:31 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:34:45 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:43:52 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-18 01:44:12 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}

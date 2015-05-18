@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
+			<a href="/">Volver</a>
 			<h1>Registro de usuario</h1>
 			<form id="register" role="form" method="POST" action="/registro/registrar-usuario/">
 				<div class="form-group">

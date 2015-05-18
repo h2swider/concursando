@@ -1,0 +1,5 @@
+[2015-05-18 00:07:46 / 127.0.0.1] "El token fc061160bb672d085e693181074921fb para el usuario => user_id: 50 ha expirado."
+[2015-05-18 00:07:48 / 127.0.0.1] "El token fc061160bb672d085e693181074921fb para el usuario => user_id: 50 ha expirado."
+[2015-05-18 00:08:00 / 127.0.0.1] "El token fc061160bb672d085e693181074921fb para el usuario => user_id: 50 ha expirado."
+[2015-05-18 00:08:38 / 127.0.0.1] "El token fc061160bb672d085e693181074921fb para el usuario => user_id: 50 ha expirado."
+[2015-05-18 00:08:54 / 127.0.0.1] "El token 4be7ec22a025c460fde2815a3a75b4b4 para el usuario => user_id: 50 ha expirado."

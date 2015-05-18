@@ -13,9 +13,7 @@ class RutasController {
     }
 
     private function parseUrl($path) {
-
         if (isset($this->rutas[$path])) {
-
             $partsURL = explode("/", $this->rutas[$path]);
             $data['controller'] = $partsURL[0];
             $data['method'] = $partsURL[1];
@@ -62,6 +60,7 @@ class RutasController {
     private function cargarRutasConfig($base_url) {
         $foo = explode("?", $base_url);
         $partesURL = array_filter(explode("/", $foo[0]));
+		$request['url'] = null;
         switch (count($partesURL)) {
             case 0:
                 $data = $this->parseUrl("main");
@@ -74,7 +73,8 @@ class RutasController {
                 break;
             default:
                 $data = $this->parseUrl($partesURL[1] . "/" . $partesURL[2] . "/@param");
-                break;
+				$request['url'] = $partesURL[3];
+            break;
         }
         $obj = $this->getController($data['controller']);
         $request['post'] = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

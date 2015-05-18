@@ -16,8 +16,7 @@ class EstadoModel {
 
         try {
             $fecha = date('Y-m-d H:i:s');
-            $sql = "INSERT INTO usuario_estado (fecha, id_estado, id_usuario) VALUES (:fecha, :id_usuario, :id_estado)";
-
+            $sql = "INSERT INTO usuario_estado (fecha, id_estado, id_usuario) VALUES (:fecha, :id_estado, :id_usuario)";
             $query = $this->conexion->prepare($sql);
             $query->bindParam(":fecha", $fecha, PDO::PARAM_STR);
             $query->bindParam(":id_usuario", $id_usuario, PDO::PARAM_INT);
@@ -34,5 +33,21 @@ class EstadoModel {
             exit;
         }
     }
+	
+	public function confirmarUsuario($token) {
+		$tokenParts = explode("-", $token);
+		$id_usuario = $tokenParts[0];
+		$token = $tokenParts[1];
+		$sql = "SELECT id_estado, id_usuario, fecha FROM usuario_estado WHERE id_usuario = :idu ORDER BY id_usuario_estado DESC LIMIT 0,1";
+		$query = $this->conexion->prepare($sql);
+		$query->bindParam(":idu", $id_usuario, PDO::PARAM_INT);
+		$query->execute();
+		$results = $query->fetch(PDO::FETCH_ASSOC);
+		if ($results && $token == md5($results['fecha'].SALT) && $results['id_estado'] == EstadoModel::CONFIRMAR) {
+			return $id_usuario;
+		}
+		Log::confirmacionMail("El token ".$token." para el usuario => user_id: ".$id_usuario." ha expirado.");
+		return false;
+	}
 
 }

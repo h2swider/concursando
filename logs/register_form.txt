@@ -1,2 +1,0 @@
-[2015-05-17 03:45:23 / 127.0.0.1] "El valor de nombre no puede ser vacio ni contener caracteres especiales"
-[2015-05-17 03:45:39 / 127.0.0.1] "El valor de apellido no puede ser vacio ni contener caracteres especiales"
