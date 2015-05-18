@@ -31,10 +31,12 @@ var particular = {
         return false;
     },
     validateFecha: function(campo) {
+        console.log( campo.val());
         if (!particular.validateRequire(campo)) {
             var date = new Date();
             var dateParts = campo.val().split("/");
             var givenDate = new Date(dateParts[2], parseInt(dateParts[1]) - 1, dateParts[0]);
+            
             if (givenDate > date) {
                 $("#invalid-fecha_nacimiento").removeClass("hidden");
                 return true;
@@ -126,7 +128,7 @@ var particular = {
                 });
             }
         });
-        $(".datepicker").on("changeDate", function(evt) {
+        $(".datepicker").on("blur", function(evt) {
             if (particular.validateFecha($(this))) {
                 particular.addError($(this));
             } else {
@@ -185,7 +187,7 @@ var particular = {
             window.location.href = '/login';
         });
 
-        $('#volver').on('click', function(event) {
+        $('#volver').on('mousedown click', function(event) {
             event.preventDefault();
             modal_element.modal();
         });

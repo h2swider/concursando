@@ -21,6 +21,11 @@ class LoginController extends Controller {
         $data['error'] = "El link ingresado no es válido";
         $this->main($data);
     }
+    
+    public function errorChangePass() {
+        $data['error'] = "El link ingresado no es válido";
+        $this->main($data);
+    }
 
     public function login($data) {
         $this->error[] = parent::validarEmail($data['post']['email']);

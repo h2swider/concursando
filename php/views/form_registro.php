@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <label class="control-label input-group-addon">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" maxlength="100" />
+                        <input type="email" class="form-control" id="email" name="email" maxlength="100" autofocus="true" />
                     </div>
                     <div id="invalid-mail" class="alert alert-dismissable alert-danger top-buffer hidden">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
@@ -34,8 +34,6 @@
                         Las contrase&ntilde;as no coinciden
                     </div>
                 </div>
-
-
                 <div class="form-group">
                     <div class="input-group">
                         <label class="input-group-addon control-label"  for="paises">Pa&iacute;s</label>
@@ -70,7 +68,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <label class="control-label input-group-addon" for="fecha_nacimiento">Fecha de Nacimiento</label>
-                        <input type="text" class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" />
+                        <input type="text" class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa" />
                     </div>
                     <div id="invalid-fecha_nacimiento" class="alert alert-dismissable alert-danger top-buffer hidden">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>

@@ -43,9 +43,14 @@ class RecuperoController extends Controller {
     }
     
     public function changePassword($data) {
+        
+        if(true){ // si es valido el token
         parent::cargarVista('header.php');
         parent::cargarVista('cambiar_clave.php', $data);
         parent::cargarVista('footer.php', get_class());
+        } else {
+            
+        }
     }
 
 }

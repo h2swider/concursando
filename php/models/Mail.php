@@ -17,6 +17,19 @@ class Mail {
         
     }
 
+    private static function sendMail($to, $asunto, $message, $headers) {
+
+        if (ENTORNO === 'PROD') {
+            mail($to, $asunto, $message, $headers);
+        } else {
+            $data['to'] = $to;
+            $data['asunto'] = $asunto;
+            $data['message'] = $message;
+            $data['headers'] = $headers;
+            Log::devMail($data);
+        }
+    }
+
     public static function registro($to, $token) {
 
         $headers = "MIME-Version: 1.0" . "\r\n";
@@ -33,8 +46,7 @@ class Mail {
                 "<p>Haga click en el siguiente enlace para confirmar su cuenta en Concursando <a href='http://concursando.com.ar/registro/confirmar/$token' alt='Confirmar'>Confirmar</a></p>" .
                 "</body>" .
                 "</html>";
-
-        mail($to, $asunto, $message, $headers);
+        self::sendMail($to, $asunto, $message, $headers);
     }
 
     public static function recovery($to, $token) {
@@ -50,7 +62,7 @@ class Mail {
                 "<p>Haga click en el siguiente enlace para recuperar su clave <a href='http://concursando.com.ar/recuperar/cambiar-clave/$token' alt='Recuperar'>Recuperar</a></p>" .
                 "</body>" .
                 "</html>";
-        mail($to, $asunto, $message, $headers);
+        self::sendMail($to, $asunto, $message, $headers);
     }
 
 }
