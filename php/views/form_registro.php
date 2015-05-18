@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
-            <a href="/">Volver</a>
+
             <h1>Registro de usuario</h1>
             <form id="register" role="form" method="POST" action="/registro/registrar-usuario/">
                 <div class="form-group">
@@ -77,8 +77,30 @@
                         Ingrese una fecha de nacimiento v&aacute;lida.
                     </div>
                 </div>
-                <button type="submit" class="btn btn-default">Registrarme</button>
+                <button type="submit" class="btn btn-default pull-right">Registrarme</button>
+                <a href="/" alt="volver" id="volver" class="btn btn-link pull-right">Volver</a>
             </form>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-volver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Volver</h4>
+            </div>
+            <div class="modal-body">
+                Perdera los datos ingresados ¿Desea continuar?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary continue">Continuar</button>
+            </div>
         </div>
     </div>
 </div>
