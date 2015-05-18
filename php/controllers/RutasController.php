@@ -60,7 +60,7 @@ class RutasController {
     private function cargarRutasConfig($base_url) {
         $foo = explode("?", $base_url);
         $partesURL = array_filter(explode("/", $foo[0]));
-		$request['url'] = null;
+        $request['url'] = null;
         switch (count($partesURL)) {
             case 0:
                 $data = $this->parseUrl("main");

@@ -12,17 +12,17 @@ class LoginController extends Controller {
         parent::cargarVista("footer.php", get_class());
     }
 
-    public function confirmedAcount() {
+    public function confirmedAcount($data= null) {
         $data['confirmed'] = "La cuenta fue confirmada satisfactoriamente, ya puede ingresar al sistema";
         $this->main($data);
     }
     
-    public function errorConfirm() {
+    public function errorConfirm($data= null) {
         $data['error'] = "El link ingresado no es válido";
         $this->main($data);
     }
     
-    public function errorChangePass() {
+    public function errorChangePass($data= null) {
         $data['error'] = "El link ingresado no es válido";
         $this->main($data);
     }

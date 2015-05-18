@@ -56,10 +56,11 @@ var global = {
     },
     validateFecha: function(campo) {
         if (!global.validateRequire(campo)) {
+            
             var date = new Date();
             var dateParts = campo.val().split("/");
             var givenDate = new Date(dateParts[2], parseInt(dateParts[1]) - 1, dateParts[0]);
-
+console.log(givenDate > date);
             if (givenDate > date) {
                 $("#invalid-fecha_nacimiento").removeClass("hidden");
                 return true;
@@ -67,7 +68,6 @@ var global = {
                 $("#invalid-fecha_nacimiento").addClass("hidden");
                 return false;
             }
-            return givenDate > date ? true : false;
         } else {
             return true;
         }

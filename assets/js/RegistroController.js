@@ -19,14 +19,13 @@ var particular = {
     validateAtMoment: function() {
         $("form input:not(.datepicker):not(input[type='email'])").on("blur", function(evt) {
             if (global.validateRequire($(this))) {
-
                 global.addError($(this));
             } else {
                 global.addSuccess($(this));
             }
         });
 
-        $("form input[type='text']").on("blur", function(evt) {
+        $("form input[type='text']:not(.datepicker)").on("blur", function(evt) {
             var errorSelector = $("#invalid-" + $(this).attr("id"));
             if (global.validateString($(this))) {
                 global.addError($(this));
@@ -84,8 +83,11 @@ var particular = {
             particular.error = [];
             $("form input[type='email']").trigger("blur");
             $("form input:not(.datepicker):not(input[type='email'])").trigger("blur");
+           
             $(".datepicker").trigger("blur");
+            
             $("select").trigger("change");
+            console.log(particular.error);
             var $this = $(this);
             if (!particular.error.length) {
                 $("#password").val($.md5($("#password").val()));
