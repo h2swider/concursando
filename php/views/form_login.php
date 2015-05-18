@@ -11,7 +11,7 @@
 				</div>
 				<div id="invalid-mail" class="alert alert-dismissable alert-danger top-buffer hidden">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-					Debes ingresar un correo v&aacute;lido.
+					Debes ingresar un email v&aacute;lido.
 				</div>
 				<div class="form-group">
 					<div class="input-group">
@@ -36,7 +36,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12 column">
-			<a href="#">¿No puedes acceder a tu cuenta?</a>
+			<a href="/recuperar-clave/">¿No puedes acceder a tu cuenta?</a>
 		</div>
 		<div class="col-xs-12 column">
 			<span>¿No dispones de una cuenta Concursando?</span> <a href="/registro/">Registrate Ahora</a>

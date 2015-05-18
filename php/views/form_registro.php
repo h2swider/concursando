@@ -11,7 +11,7 @@
 					</div>
 					<div id="invalid-mail" class="alert alert-dismissable alert-danger top-buffer hidden">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-						Debes ingresar un correo v&aacute;lido.
+						Debes ingresar un email v&aacute;lido.
 					</div>
 					<div id="invalid-user" class="alert alert-dismissable alert-danger top-buffer hidden">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>

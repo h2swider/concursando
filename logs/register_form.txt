@@ -1,0 +1,7 @@
+[2015-05-18 02:24:42 / 127.0.0.1] "Mail incorrecto"
+[2015-05-18 02:24:42 / 127.0.0.1] "El campo password es requerido."
+[2015-05-18 02:24:46 / 127.0.0.1] "Mail incorrecto"
+[2015-05-18 02:24:46 / 127.0.0.1] "El campo password es requerido."
+[2015-05-18 02:26:28 / 127.0.0.1] "El campo password es requerido."
+[2015-05-18 02:26:31 / 127.0.0.1] "El campo password es requerido."
+[2015-05-18 02:27:56 / 127.0.0.1] "El campo password es requerido."

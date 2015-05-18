@@ -32,5 +32,9 @@ class Log {
 	public static function userLogin($data) {
 		file_put_contents(ROOT . '/logs/user-login.txt', "[".date('Y-m-d H:i:s')." / ".$_SERVER['REMOTE_ADDR']."] ".json_encode($data)."\n", FILE_APPEND);
 	}
+	
+	public static function recovery($data) {
+		file_put_contents(ROOT . '/logs/recovery.txt', "[".date('Y-m-d H:i:s')." / ".$_SERVER['REMOTE_ADDR']."] ".json_encode($data)."\n", FILE_APPEND);
+	}
 
 }
