@@ -31,7 +31,7 @@ class RegistroController extends Controller {
         $this->error[] = parent::validarString($data['post']['nombre'], 'nombre');
         $this->error[] = parent::validarString($data['post']['apellido'], 'apellido');
         $this->error[] = parent::validarClaves(md5($data['post']['password'] . SALT), md5($data['post']['password2'] . SALT));
-       
+
         if (in_array(true, $this->error)) {
             $this->main($data);
         } else {
@@ -48,6 +48,12 @@ class RegistroController extends Controller {
         $this->main();
     }
 
+    public function sucess() {
+        parent::cargarVista('header.php');
+        parent::cargarVista('exito_crear.php');
+        parent::cargarVista('footer.php', get_class());
+    }
+
     public function registrarUsuario($data) {
         $usuario = new UserModel();
         $estado = new EstadoModel();
@@ -55,12 +61,14 @@ class RegistroController extends Controller {
         $data['post']['password'] = md5($data['post']['password'] . SALT);
         $userID = $usuario->guardarUsuario($data['post']);
         $estadoID = $estado->insertUsuarioEstado($userID, EstadoModel::CONFIRMAR);
-        if ($userID) {
-            Mail::registro($data['post']['email'], $userID."-".md5($data['post']['f_alta'].SALT));
-        } else {
-			header("Location: /registro/error-registro");
+        if ($userID && $estadoID) {
+            Mail::registro($data['post']['email'], $userID . "-" . md5($data['post']['f_alta'] . SALT));
+            header("Location: /registro/exito");
             exit;
-		}
+        } else {
+            header("Location: /registro/error-registro");
+            exit;
+        }
     }
 
 }

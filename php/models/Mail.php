@@ -12,12 +12,10 @@
  * @author Lucas
  */
 class Mail {
-	
+
     public function __construct() {
         
     }
-	
-	
 
     public static function registro($to, $token) {
 
@@ -27,8 +25,7 @@ class Mail {
                 'Reply-To: registro@concursando.com.ar' . " ";
 
         $asunto = "Confirmar cuenta en Concursando";
-        $message = "
-<html>
+        $message = "<html>
 <head>
 <title>$asunto</title>
 </head>
@@ -40,26 +37,22 @@ class Mail {
 
         mail($to, $asunto, $message, $headers);
     }
-	
-	public static function recovery($to, $token) {
-		$headers = "MIME-Version: 1.0" . "\r\n";
+
+    public static function recovery($to, $token) {
+        $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n" .
                 'From: recovery@concursando.com.ar' . " " .
                 'Reply-To: recovery@concursando.com.ar' . " ";
 
-        $asunto = "Recuperaci&oacute;n de Clave";
-		 $message = "
+        $asunto = "Recuperar clave en Concursando";
+        $message = "
 			<html>
 				<head><title>$asunto</title></head>
 				<body>
 					<p>Haga click en el siguiente enlace para recuperar su clave <a href='http://concursando.com.ar/usuario/cambiar-clave/$token' alt='Recuperar'>Recuperar</a></p>
 				</body>
 			</html>";
-		var_dump($to);
-		var_dump($asunto);
-		var_dump($message);
-		var_dump($headers);
-		mail($to, $asunto, $message, $headers);
-	}
+        mail($to, $asunto, $message, $headers);
+    }
 
 }

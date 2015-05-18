@@ -1,1 +1,0 @@
-<p>El usuario ha sido confirmado</p>
