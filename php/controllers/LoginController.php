@@ -12,18 +12,23 @@ class LoginController extends Controller {
         parent::cargarVista("footer.php", get_class());
     }
 
-    public function confirmedAcount($data= null) {
+    public function confirmedAcount($data = null) {
         $data['confirmed'] = "La cuenta fue confirmada satisfactoriamente, ya puede ingresar al sistema";
         $this->main($data);
     }
-    
-    public function errorConfirm($data= null) {
+
+    public function errorConfirm($data = null) {
         $data['error'] = "El link ingresado no es válido";
         $this->main($data);
     }
-    
-    public function errorChangePass($data= null) {
+
+    public function errorChangePass($data = null) {
         $data['error'] = "El link ingresado no es válido";
+        $this->main($data);
+    }
+
+    public function passChanged($data = null) {
+        $data['confirmed'] = 'La clave fue actualizada con exito';
         $this->main($data);
     }
 
@@ -43,7 +48,7 @@ class LoginController extends Controller {
         parent::cargarVista("footer.php");
     }
 
-    private function validUser($userModel, $email) {
+    private function validUser(UserModel $userModel, $email) {
         $userIsValid = $userModel->existsEmail($email);
         if ($userIsValid) {
             return $userIsValid;
@@ -53,7 +58,7 @@ class LoginController extends Controller {
         }
     }
 
-    private function userIsActive($userModel) {
+    private function userIsActive(UserModel $userModel) {
         $userIsActive = $userModel->isActive($userModel->getId());
         if ($userIsActive) {
             return $userIsActive;
@@ -63,12 +68,12 @@ class LoginController extends Controller {
         }
     }
 
-    private function loginUsuario($userModel, $data = null) {
+    private function loginUsuario(UserModel $userModel, $data = null) {
         $logged_in = $userModel->login($data['post']['email'], $data['post']['password']);
         if ($logged_in) {
             var_dump("Logeado");
         } else {
-            header("Location: /login/error-login/error-password?e=" . $data['post']['email']);
+            header("Location: /login/error-login/error-password");
             exit;
         }
     }

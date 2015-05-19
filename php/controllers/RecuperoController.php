@@ -19,9 +19,10 @@ class RecuperoController extends Controller {
     public function send($data = null) {
         if (!parent::validarEmail($data['post']['email'])) {
             $user = new UserModel();
+            $recupero = new RecuperoModel();
             $userID = $user->existsEmail($data['post']['email']);
             if ($userID) {
-                $token = $user->recovery($userID);
+                $token = $recupero->recovery($userID);
                 Mail::recovery($data['post']['email'], $userID . "-" . $token);
                 header("Location: /recuperar/ok/{$data['post']['email']}");
                 exit;
