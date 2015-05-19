@@ -16,7 +16,7 @@ var particular = {
         $("form input[type='email']").on("blur", function(evt) {
             var $this = $(this);
             if (global.validateEmail($(this))) {
-                global.addError($(this));
+                global.addError($(this), 'Ingrese un email válido');
             } else {
                 global.addSuccess($this);
             }

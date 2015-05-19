@@ -35,7 +35,8 @@ var global = {
         }
         return true;
     },
-    addError: function(selector) {
+    addError: function(selector, msg) {
+        selector.parents('.form-group').find('.help-block').text(msg);
         selector.parent().removeClass("has-success");
         selector.parent().addClass('has-error');
         selector.parent().find(".glyphicon-remove").remove();
@@ -45,7 +46,9 @@ var global = {
         }
         particular.error.push({campo: selector, mensaje: "Error en el campo " + selector.attr("id")});
     },
-    addSuccess: function(selector) {
+    addSuccess: function(selector, msg) {
+        if(msg != null)
+        selector.parents('.form-group').find('.help-block').text(msg);
         selector.parent().removeClass("has-error");
         selector.parent().addClass('has-success');
         selector.parent().find(".glyphicon-ok").remove();
@@ -60,7 +63,7 @@ var global = {
             var date = new Date();
             var dateParts = campo.val().split("/");
             var givenDate = new Date(dateParts[2], parseInt(dateParts[1]) - 1, dateParts[0]);
-console.log(givenDate > date);
+
             if (givenDate > date) {
                 $("#invalid-fecha_nacimiento").removeClass("hidden");
                 return true;

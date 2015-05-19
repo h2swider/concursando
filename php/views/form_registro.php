@@ -9,30 +9,21 @@
                         <label class="control-label input-group-addon">Email</label>
                         <input type="email" class="form-control" id="email" name="email" maxlength="100" autofocus="true" />
                     </div>
-                    <div id="invalid-mail" class="alert alert-dismissable alert-danger top-buffer hidden">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        Debes ingresar un email v&aacute;lido.
-                    </div>
-                    <div id="invalid-user" class="alert alert-dismissable alert-danger top-buffer hidden">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        El usuario ya existe
-                    </div>
+                    <div class="help-block with-errors">Ingrese su email</div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <label class="control-label input-group-addon" for="password">Contrase&ntilde;a</label>
                         <input type="password" class="form-control" id="password" name="password" maxlength="100"/>
                     </div>
+                    <div class="help-block with-errors">Ingrese una contraseña</div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <label class="control-label input-group-addon" for="password">Repetir Contrase&ntilde;a</label>
                         <input type="password" class="form-control" id="password2" name="password2" maxlength="100"/>
                     </div>
-                    <div id="invalid-passwords" class="alert alert-dismissable alert-danger top-buffer hidden">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        Las contrase&ntilde;as no coinciden
-                    </div>
+                    <div class="help-block with-errors">Vuelva a ingresar su contraseña</div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
@@ -44,36 +35,28 @@
                             <?php } ?>
                         </select>
                     </div>
+                    <div class="help-block with-errors">Seleccione su país</div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <span class="control-label input-group-addon">Nombre</span>
                         <input type="text" class="form-control" id="nombre" name="nombre" maxlength="45"/>
                     </div>
-                    <div id="invalid-nombre" class="alert alert-dismissable alert-danger top-buffer hidden">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        El nombre no puede estar vac&iacute;o ni contener n&uacute;meros o caracteres especiales.
-                    </div>
+                    <div class="help-block with-errors">Ingrese su nombre</div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <label class="control-label input-group-addon">Apellido</label>
                         <input type="text" class="form-control" id="apellido" name="apellido" maxlength="45" />
                     </div>
-                    <div id="invalid-apellido" class="alert alert-dismissable alert-danger top-buffer hidden">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        El apellido no puede estar vac&iacute;o ni contener n&uacute;meros o caracteres especiales.
-                    </div>
+                    <div class="help-block with-errors">Ingrese su apellido</div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <label class="control-label input-group-addon" for="fecha_nacimiento">Fecha de Nacimiento</label>
                         <input type="text" class="form-control datepicker" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="dd/mm/aaaa" />
                     </div>
-                    <div id="invalid-fecha_nacimiento" class="alert alert-dismissable alert-danger top-buffer hidden">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        Ingrese una fecha de nacimiento v&aacute;lida.
-                    </div>
+                    <div class="help-block with-errors">Ingrese su fecha de nacimiento</div>
                 </div>
                 <button type="submit" class="btn btn-default pull-right">Registrarme</button>
                 <a href="/" alt="volver" id="volver" class="btn btn-link pull-right">Volver</a>

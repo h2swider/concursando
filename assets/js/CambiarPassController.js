@@ -7,9 +7,10 @@ var particular = {
     validateAtMoment: function() {
         $("input[type='password']").on("blur", function(evt) {
             if (global.validatePasswords($("input[type='password']"))) {
-                global.addError($("input[type='password']"));
+                global.addError($("input[type='password']"), 'Las contraseñas no coinciden');
             } else {
-                global.addSuccess($("input[type='password']"));
+                global.addSuccess($("input[type='password']"), 'ok');
+
             }
         });
     },
@@ -22,6 +23,7 @@ var particular = {
             if (!particular.error.length) {
                 $("#password").val($.md5($("#password").val()));
                 $("#password2").val($.md5($("#password2").val()));
+                $this.unbind("submit");
                 $this.submit();
             }
         });

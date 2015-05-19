@@ -8,16 +8,14 @@
                         <label class="control-label input-group-addon" for="password">Contrase&ntilde;a</label>
                         <input type="password" class="form-control" id="password" name="password" maxlength="100"/>
                     </div>
+                    <div class="help-block with-errors">Ingrese su nueva clave</div>
                 </div>
                 <div class="form-group">
                     <div class="input-group">
                         <label class="control-label input-group-addon" for="password">Repetir Contrase&ntilde;a</label>
                         <input type="password" class="form-control" id="password2" name="password2" maxlength="100"/>
                     </div>
-                    <div id="invalid-passwords" class="alert alert-dismissable alert-danger top-buffer hidden">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        Las contrase&ntilde;as no coinciden
-                    </div>
+                    <div class="help-block with-errors">Vuelva a ingresar su nueva clave</div>
                 </div>
                 <button type="submit" class="btn btn-default pull-right">Cambiar Clave</button>
                 <a href="/login" alt="volver" id="volver" class="btn btn-link pull-right">Cancelar</a>

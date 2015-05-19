@@ -26,13 +26,20 @@ class RecuperoController extends Controller {
                 header("Location: /recuperar/ok/{$data['post']['email']}");
                 exit;
             } else {
-                header("Location: /recuperar-clave/");
+                header("Location: /recuperar/invalido");
                 exit;
             }
         } else {
             header("Location: /recuperar-clave/");
             exit;
         }
+    }
+    
+    public function invalid($data) {
+        $data['msg'] = 'Ingreso un email inválido.';
+        parent::cargarVista('header.php');
+        parent::cargarVista('recuperar_clave.php', $data);
+        parent::cargarVista('footer.php', get_class());
     }
 
     public function sendOk($data) {

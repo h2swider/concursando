@@ -102,3 +102,9 @@
 [2015-05-18 17:33:34 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
 [2015-05-18 22:29:41 / 127.0.0.1] {"get":{"error":"No existe la ruta 'usuario\/registrar-usuario'"}}
 [2015-05-18 22:29:41 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-19 03:49:25 / 127.0.0.1] {"get":{"error":"No existe la ruta 'usuario\/registrar-usuario'"}}
+[2015-05-19 03:49:26 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-19 03:50:20 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-19 03:50:20 / 127.0.0.1] {"get":{"error":"No existe la ruta 'assets\/js\/@param'"}}
+[2015-05-19 03:51:11 / 127.0.0.1] {"get":{"error":"No existe la ruta 'usuario\/registrar-usuario'"}}
+[2015-05-19 03:51:23 / 127.0.0.1] {"get":{"error":"No existe la ruta 'usuario\/registrar-usuario'"}}
