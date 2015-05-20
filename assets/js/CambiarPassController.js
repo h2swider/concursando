@@ -7,18 +7,21 @@ var particular = {
     validateAtMoment: function() {
         $("input[type='password']").on("blur", function(evt) {
             if (global.validateRequire($(this))) {
-                global.addError($("input[type='password']"), 'Las contraseñas no coinciden');
+                global.addError($(this), 'Complete este campo');
             } else {
-                global.addSuccess($("input[type='password']"), 'ok');
+                global.addSuccess($(this), 'ok');
 
             }
         });
-         $("#password2").on("input", function(evt) {
-            if (global.validatePasswords($("input[type='password']"))) {
-                global.addError($("input[type='password']"), 'Las contraseñas no coinciden');
-            } else {
-                global.addSuccess($("input[type='password']"), 'ok');
+        $("#password2").on("input", function(evt) {
+            //valido unicamente si el largo de repetir contraseña es igual al de la contraseña normal
+            if ($(this).val().length >= $("#password").val().length) {
+                if (global.validatePasswords($("input[type='password']"))) {
+                    global.addError($("input[type='password']"), 'Las contraseñas no coinciden');
+                } else {
+                    global.addSuccess($("input[type='password']"), 'ok');
 
+                }
             }
         });
     },
