@@ -25,25 +25,22 @@ class CambiarPassController extends Controller {
     }
 
     public function savePassword($data) {
-
         $recupero = new RecuperoModel();
-        if ($recupero->isValidToken($data['post']['token'])) {
-
+		$id_recupero = $recupero->isValidToken($data['post']['token']);
+        if ($id_recupero) {
             $this->error[] = parent::validarPassword($data['post']['password']);
             $this->error[] = parent::validarClaves(md5($data['post']['password'] . SALT), md5($data['post']['password2'] . SALT));
             if (in_array(true, $this->error)) {
-                
                 $data['get']['token'] = $data['post']['token'];
                 $this->main($data);
             } else {
-                
                 $user = new UserModel();
                 $user->savePass(explode('-', $data['post']['token'])[0], $data['post']['password']);
-                   header('location:/login/clave-cambiada');
-                exit;
+				$recupero->disableToken($id_recupero);
+				header('location:/login/clave-cambiada');
+				exit;
             }
         } else {
-            
             parent::cargarVista('header.php');
             parent::cargarVista('token_expirado.php', $data);
             parent::cargarVista('footer.php', get_class());

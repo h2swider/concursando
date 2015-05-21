@@ -5,7 +5,7 @@ var particular = {
         this.validarForm();
     },
     validateAtMoment: function() {
-        $("form input:not(.datepicker):not(input[type='email'])").on("blur", function(evt) {
+        $("main form input:not(.datepicker):not(input[type='email'])").on("blur", function(evt) {
             if (global.validateRequire($(this))) {
                 global.addError($(this));
             } else {
@@ -13,7 +13,7 @@ var particular = {
             }
         });
 
-        $("form input[type='email']").on("blur", function(evt) {
+        $("main form input[type='email']").on("blur", function(evt) {
             var $this = $(this);
             if (global.validateEmail($(this))) {
                 global.addError($(this), 'Ingrese un email válido');
@@ -23,7 +23,7 @@ var particular = {
         });
     },
     validarForm: function() {
-        $("form").submit(function(event) {
+        $("main form").submit(function(event) {
             event.preventDefault();
             particular.error = [];
             $("form input[type='email']").trigger("blur");

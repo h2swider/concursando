@@ -1,6 +1,3 @@
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
             <h2>Cambiar Clave</h2>
             <form id="register" role="form" method="POST" action="/recuperar/guardar">
                 <div class="form-group">
@@ -21,6 +18,3 @@
                 <button type="submit" class="btn btn-default pull-right">Cambiar Clave</button>
                 <a href="/login" alt="volver" id="volver" class="btn btn-link pull-right">Cancelar</a>
             </form>
-        </div>
-    </div>
-</div>

@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)) {
+	session_start();
+}
 define('ENTORNO', 'DEV');
 define('SALT', 'c0ncurs4nd0!');
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);

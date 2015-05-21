@@ -28,6 +28,19 @@ class RecuperoModel {
         }
         return false;
     }
+	
+	public function disableToken($id_recupero) {
+		try {
+			$sql = "UPDATE recupero SET habilitado='N' WHERE id_recupero = :idr";
+			$query = $this->conexion->prepare($sql);
+			$query->bindParam(":idr", $id_recupero, PDO::PARAM_INT);
+			return $query->execute();
+		} catch (PDOException $e) {
+			Log::recovery($e->getMessage());
+		} catch (Exception $e) {
+			Log::recovery($e->getMessage());
+		}
+	}
 
     public function isValidToken($token) {
         $token_parts = explode('-',$token);
@@ -45,6 +58,7 @@ class RecuperoModel {
                     . " WHERE id_usuario = :id"
                     . " AND tokken = :token"
                     . " AND TIMESTAMPDIFF(DAY, fecha, now()) = 0"
+					. " AND habilitado = 'S'"
                     . " ORDER BY fecha desc"
                     . " LIMIT 0,1";
             $query = $this->conexion->prepare($sql);

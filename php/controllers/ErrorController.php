@@ -9,6 +9,7 @@ class ErrorController extends Controller {
     public function main($data) {
         Log::error($data);
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         parent::cargarVista('error.php');
         parent::cargarVista('footer.php', get_class());
     }

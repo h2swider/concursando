@@ -12,6 +12,7 @@ class RecuperoController extends Controller {
 
     public function recovery() {
         parent::cargarVista("header.php");
+		parent::cargarVista('menu.php');
         parent::cargarVista("recuperar_clave.php");
         parent::cargarVista("footer.php", get_class());
     }
@@ -39,6 +40,7 @@ class RecuperoController extends Controller {
     public function invalid($data) {
         $data['msg'] = 'Ingreso un email inválido.';
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         parent::cargarVista('recuperar_clave.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
@@ -46,6 +48,7 @@ class RecuperoController extends Controller {
     public function sendOk($data) {
         $data['msg'] = 'Se envio un mail a <strong>'.$data['url'].'</strong> para recuperar su clave.';
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         parent::cargarVista('form_login.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
@@ -54,6 +57,7 @@ class RecuperoController extends Controller {
         
         if(true){ // si es valido el token
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         parent::cargarVista('cambiar_clave.php', $data);
         parent::cargarVista('footer.php', get_class());
         } else {

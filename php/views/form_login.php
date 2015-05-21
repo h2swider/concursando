@@ -1,7 +1,5 @@
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-xs-12 column">
-            <h1>Login</h1>
+<section class="col-xs-12 col-sm-8 col-sm-offset-2">
+	 <h2>Login</h2>
             <div class="alert alert-info <?php echo!isset($data['msg']) ? 'hidden' : null ?>"><?php echo isset($data['msg']) ? $data['msg'] : null ?></div>
             <div class="alert alert-success <?php echo!isset($data['confirmed']) ? 'hidden' : null ?>"><?php echo isset($data['confirmed']) ? $data['confirmed'] : null ?></div>
             <div class="alert alert-danger <?php echo!isset($data['error']) ? 'hidden' : null ?>"><?php echo isset($data['error']) ? $data['error'] : null ?></div>
@@ -25,9 +23,6 @@
                 </div>
                 <button type="submit" class="btn btn-default">Login</button>
             </form>
-
-        </div>
-    </div>
     <div class="row">
         <div class="col-xs-12 column">
             <a href="/recuperar-clave/">¿No puedes acceder a tu cuenta?</a>
@@ -36,5 +31,4 @@
             <span>¿No dispones de una cuenta Concursando?</span> <a href="/registro/">Registrate Ahora</a>
         </div>
     </div>
-
-</div>
+</section>

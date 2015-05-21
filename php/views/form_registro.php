@@ -1,8 +1,5 @@
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-
-            <h1>Registro de usuario</h1>
+<section class="col-xs-12 col-sm-8 col-sm-offset-2">
+<h2>Registro de usuario</h2>
             <form id="register" role="form" method="POST" action="/registro/registrar-usuario/">
                 <div class="form-group">
                     <div class="input-group">
@@ -59,13 +56,8 @@
                     <div class="help-block with-errors">Ingrese su fecha de nacimiento</div>
                 </div>
                 <button type="submit" class="btn btn-default pull-right">Registrarme</button>
-                <a href="/" alt="volver" id="volver" class="btn btn-link pull-right">Volver</a>
+                <a href="/login/" alt="volver" id="volver" class="btn btn-link pull-right">Volver</a>
             </form>
-
-
-        </div>
-    </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal-volver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -85,3 +77,4 @@
         </div>
     </div>
 </div>
+</section>

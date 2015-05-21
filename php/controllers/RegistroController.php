@@ -12,6 +12,7 @@ class RegistroController extends Controller {
         $paises = new PaisModel();
         $data['paises'] = $paises->getPaises();
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         parent::cargarVista('form_registro.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
@@ -51,6 +52,7 @@ class RegistroController extends Controller {
     public function sucess($data) {
         $data['msg'] = 'Su cuenta <strong>'.$data['url'].'</strong> fue creada con exito, el siguiente paso es confirmar el mail.';  
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         parent::cargarVista('form_login.php', $data);
         parent::cargarVista('footer.php', get_class());
     }

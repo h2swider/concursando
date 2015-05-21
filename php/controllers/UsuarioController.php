@@ -18,6 +18,7 @@ class UsuarioController extends Controller {
         $estado = new EstadoModel();
         $id_usuario = $estado->confirmarUsuario($data['url']);
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         if ($id_usuario) {
             $estado->insertUsuarioEstado($id_usuario, EstadoModel::HABILITADO);
             parent::cargarVista('exito_confirmar.php');
@@ -29,6 +30,7 @@ class UsuarioController extends Controller {
 
     public function changePassword($data) {
         parent::cargarVista('header.php');
+		parent::cargarVista('menu.php');
         parent::cargarVista('cambiar_clave.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
