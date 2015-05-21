@@ -42,7 +42,6 @@ class LoginController extends Controller {
     public function login($data) {
         $this->error[] = parent::validarEmail($data['post']['email']);
         $this->error[] = parent::validarRequerido($data['post']['password'], "password");
-        parent::cargarVista("header.php");
         if (!in_array(true, $this->error)) {
             $user = new UserModel();
             $this->validUser($user, $data['post']['email']);
@@ -52,7 +51,6 @@ class LoginController extends Controller {
             header("Location: /login/");
             exit;
         }
-        parent::cargarVista("footer.php");
     }
 
     private function validUser(UserModel $userModel, $email) {

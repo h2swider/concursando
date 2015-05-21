@@ -17,7 +17,7 @@ var particular = {
         });
     },
     validateAtMoment: function() {
-        $("form input:not(.datepicker):not(input[type='email'])").on("blur", function(evt) {
+        $("main form input:not(.datepicker):not(input[type='email'])").on("blur", function(evt) {
             if (global.validateRequire($(this))) {
                 global.addError($(this),'Complete este campo');
             } else {
@@ -25,7 +25,7 @@ var particular = {
             }
         });
 
-        $("form input[type='text']:not(.datepicker)").on("blur", function(evt) {
+        $("main form input[type='text']:not(.datepicker)").on("blur", function(evt) {
             var errorSelector = $("#invalid-" + $(this).attr("id"));
             if (global.validateString($(this))) {
                 global.addError($(this), 'No es un dato válido, por favor ingrese solo letras');
@@ -37,7 +37,7 @@ var particular = {
             ;
         });
 
-        $("form input[type='email']").on("blur", function(evt) {
+        $("main form input[type='email']").on("blur", function(evt) {
             var $this = $(this);
             if (global.validateEmail($(this))) {
                 global.addError($(this), 'Ingrese un Email válido');
@@ -78,11 +78,11 @@ var particular = {
         });
     },
     validarForm: function() {
-        $("form").submit(function(event) {
+        $("main form").submit(function(event) {
             event.preventDefault();
             particular.error = [];
-            $("form input[type='email']").trigger("blur");
-            $("form input:not(.datepicker):not(input[type='email'])").trigger("blur");
+            $("main form input[type='email']").trigger("blur");
+            $("main form input:not(.datepicker):not(input[type='email'])").trigger("blur");
            
             $(".datepicker").trigger("blur");
             

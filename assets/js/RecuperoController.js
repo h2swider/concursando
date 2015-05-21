@@ -14,7 +14,7 @@ var particular = {
         });
     },
     validarForm: function() {
-        $("form").submit(function(evt) {
+        $("main form").submit(function(evt) {
             evt.preventDefault();
             particular.error = [];
             $("#email").trigger("blur");

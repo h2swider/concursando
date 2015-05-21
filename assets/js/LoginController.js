@@ -26,8 +26,8 @@ var particular = {
         $("main form").submit(function(event) {
             event.preventDefault();
             particular.error = [];
-            $("form input[type='email']").trigger("blur");
-            $("form input:not(.datepicker):not(input[type='email'])").trigger("blur");
+            $("main form input[type='email']").trigger("blur");
+            $("main form input:not(.datepicker):not(input[type='email'])").trigger("blur");
             var $this = $(this);
             if (!particular.error.length) {
                 $("#password").val($.md5($("#password").val()));

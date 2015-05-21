@@ -26,10 +26,10 @@ var particular = {
         });
     },
     validarForm: function() {
-        $("form").submit(function(event) {
+        $("main form").submit(function(event) {
             event.preventDefault();
             particular.error = [];
-            $("form input[type='password']").trigger("blur");
+            $("main form input[type='password']").trigger("blur");
             $("password2").trigger("input");
             var $this = $(this);
             if (!particular.error.length) {
