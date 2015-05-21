@@ -4,3 +4,4 @@ nbproject/project.xml
 logs/error.txt
 logs/error.txt
 logs/dev_mail.txt
+php/config/db.ini

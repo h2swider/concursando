@@ -1,4 +1,4 @@
-<div class="wrapper">
+
 			<nav class="navbar navbar-default fixed col-xs-12" role="navigation">
 				<div class="navbar-header col-sm-2">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
@@ -27,14 +27,15 @@
 						</form>
 				</div>
 			</nav>
-			<div class="row top-buffer-xl col-xs-12">
-			<?php if (isset($_SESSION['userdata'])) { ?>
-			<nav class="navbar col-xs-12 col-sm-2 fixed pad-top-buffer-md">
-				<div class="list-group">
-					<a href="#" class="list-group-item">Crear Concurso</a>
-					<a href="#" class="list-group-item">Mis Concursos</a>
-				</div>
-			</nav>
-			<?php } ?>
-			<main class="<?php echo isset($_SESSION['userdata']) ? 'col-xs-10 col-xs-offset-2' : 'row'; ?>">
+			<div class="container-fluid">
+				<div class="row top-buffer-xl">
+					<?php if (isset($_SESSION['userdata'])) { ?>
+					<nav class="navbar col-xs-12 col-sm-2 fixed pad-top-buffer-md">
+						<div class="list-group">
+							<a href="#" class="list-group-item">Crear Concurso</a>
+							<a href="#" class="list-group-item">Mis Concursos</a>
+						</div>
+					</nav>
+					<?php } ?>
+					<main class="<?php echo isset($_SESSION['userdata']) ? 'col-xs-10 col-xs-offset-2' : 'col-xs-12'; ?>">
 
