@@ -1,0 +1,5 @@
+var particular = {
+    init: function() {
+
+    }
+};

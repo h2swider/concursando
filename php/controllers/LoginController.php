@@ -7,15 +7,14 @@ class LoginController extends Controller {
     }
 
     public function main($data = null) {
-		
+
         parent::cargarVista("header.php");
-		parent::cargarVista("menu.php");
-		if (isset($_SESSION['userdata'])) {
-			parent::cargarVista("panel.php", $data);
-		} else {
-			parent::cargarVista("form_login.php", $data);
-			
-		}
+        parent::cargarVista("menu.php");
+        if (isset($_SESSION['userdata'])) {
+            parent::cargarVista("panel.php", $data);
+        } else {
+            parent::cargarVista("form_login.php", $data);
+        }
         parent::cargarVista("footer.php", get_class());
     }
 
@@ -76,19 +75,19 @@ class LoginController extends Controller {
     private function loginUsuario(UserModel $userModel, $data = null) {
         $logged_in = $userModel->login($data['post']['email'], $data['post']['password']);
         if ($logged_in) {
-			$_SESSION['userdata'] = $logged_in;
-			header("Location: /panel/");
-			exit;
+            $_SESSION['userdata'] = $logged_in;
+            header("Location: /panel/");
+            exit;
         } else {
             header("Location: /login/error-login/error-password");
             exit;
         }
     }
-	
-	public function logout($data) {
-		session_destroy();
-		header("Location: /");
-		exit;
-	}
+
+    public function logout($data) {
+        session_destroy();
+        header("Location: /");
+        exit;
+    }
 
 }
