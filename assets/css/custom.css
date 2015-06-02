@@ -1,11 +1,17 @@
 nav[role="navigation"] { z-index: 999; }
 
+div.container-fluid > div{ margin-top: 80px}
 main { padding: 0px !important }
 
 footer { color: white; background-color: #262a38;  }
-footer > div:first-child{ margin: 20px 0 30px}
+footer .logo { height: 40px;}
+footer > div:first-child{ margin: 20px 0 15px}
+footer > div:last-child{ margin-bottom: 30px}
 footer .nav-inferior{ list-style: none; padding: 0px; margin: 0px}
-footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block; margin-right: 15px; margin-left: 15px}
+footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block;}
+footer .nav-inferior li a{ padding-left: 15px; padding-right: 15px}
+footer a {color: white}
+footer .social li{display: inline-block; margin: 0px 15px;}
 
 
 /* Clases propias */
@@ -20,18 +26,35 @@ footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block;
 .fixed {position: fixed; }
 .concurso { padding: 15px; }
 .concurso img { line-height: 0px; }
+.nav .divider, .divider{display: none; padding: 0px 0px; color: lightgray; line-height: 45px;}
 
 .social{list-style: none; margin: 0px; padding: 0px; height: 60px; line-height: 60px;}
 .social li{display: inline-block; margin: 0px 9px;}
 .social a{color: white; font-size: 35px; line-height: 60px}
 
 /* Menu superior */
+.menu{ min-height: 80px; padding: 14px 15px}
+.menu{ 
+    -webkit-box-shadow: 0 0px 10px 4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0px 10px 4px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0px 10px 4px rgba(0, 0, 0, 0.75);
+}
+
+.menu h1{ margin:0px; padding: 0px; }
+.menu h1 a{  background-image: url('/assets/images/logo.png'); width: 266px; background-size: cover;
+             text-indent: -3000px; overflow: hidden}
+
 .navbar-default { background: #262a38; border-radius: 0px; border: 0px; margin: 0px;}
 .navbar-default .navbar-nav > li > a{ color: #d4d5e2; }
 .navbar-default .glyphicon{ color: white; top: 0px; background: #9dcbca; } /*Bug addon*/
+.menu .input-group-addon {border: 1px solid #9DCBCA}
+
+.navbar-default .navbar-toggle{ background-color: #87CBCB; border-color: #87CBCB;  }
+.navbar-default .navbar-toggle .icon-bar{background-color: #262A38; }
+/* Fin menu */
 
 /* Banner home*/
-.baner{ background-image: url('/assets/images/baner.jpg');  background-repeat: no-repeat;border-bottom: 4px solid #fdfeff; height: 300px;}
+.baner{ background-image: url('/assets/images/baner.jpg');background-size: cover;  background-repeat: no-repeat;border-bottom: 4px solid #fdfeff; height: 300px;}
 .baner article{ position: relative}
 
 .anotate{font-weight: bold; position: absolute;; 
@@ -39,13 +62,15 @@ footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block;
 .anotate h3{ font-weight: bolder; color: white; font-size: 50px; margin: 0px;}
 .anotate p{color: #303542; font-size: 16px; }
 
-.participa{ color: #303542; font-weight: bolder; margin-top: 293px; padding-top:10px; background-color: #79b1ae }
-.participa h4{font-weight: bolder; font-size: 25px; margin: 0px;; 
+.participa{ color: #303542; font-weight: bolder; margin-top: 293px; padding-top:10px; padding-bottom:15px; background-color: #79b1ae;
+            border-bottom: 5px solid white; border-top: 5px solid white}
+.participa > div{ margin-left: 15px; }
+.participa h2{font-weight: bolder; font-size: 25px; margin: 0px;; 
               background-image: url('/assets/images/nube.png'); background-repeat: no-repeat; height: 55px;}
-.participa h4 span{display: block; color: white; font-weight: bolder;}
-.participa p{font-size: 16px; margin: 5px 0px 0px 0px; letter-spacing: 1px; padding-left: 2px;}
+.participa h2 span{display: block; color: white; font-weight: bolder; font-size: 20px;}
+.participa p{font-size: 16px; margin: 5px 0px 0px 0px;  padding-left: 2px;}
 
-.calendar{color: white; padding:10px 0px; background-color: #577a7e;}
+.calendar{color: white; padding:10px 0px; background-color: #577a7e; border-bottom: 5px solid white}
 .calendar .day{font-size: 45px; line-height: 60px; padding-right: 0px; margin-right: -30px}
 .calendar p:first-child{border-bottom: 1px solid white; text-transform: uppercase; margin-top: 10px}
 .calendar p{margin: 0px; line-height: 20px;}
@@ -56,7 +81,7 @@ footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block;
 /* Fin Banner*/
 
 .home{ background-color: #eaebf0}
-.home > div >div{ background-color: white; border: 2px solod #dadadb; border-radius: 3px; padding: 5px;}
+.home > div >div{ background-color: white; border: 2px solid #dadadb; border-radius: 3px; padding: 5px;}
 .home > div >div{ 
     -webkit-box-shadow: 0px 10px 12px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 10px 12px -4px rgba(0,0,0,0.75);
@@ -66,46 +91,60 @@ footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block;
 .home .img > div:first-child{ height: 180px;;}
 .home .img > div:last-child{ line-height:35px; color:white; padding-top: 25px; text-align: center; height: 65px; background-image: url('/assets/images/gris.png'); margin-bottom: 5px}
 .home .description{ height: 65px; color: #262a38}
-.home .description .fa{ margin-right: 10px; color: #262a38}
+.home .description > div:first-child .fa{ margin-right: 10px; color: #262a38}
 .home .description > div{ display: inline-block}
 .home .description > div:nth-child(1){ width: calc(100% - 30px)}
 .home .description > div:nth-child(2){ height: 100%; width: 30px; background-color: #d00016; 
                                        line-height: 65px; vertical-align: top; color: white; text-align: center; font-weight: bold;
-                                       font-size: 20px;}
+                                       font-size: 30px; cursor: pointer}
 .description > div > div{ line-height: 32px; margin-left: 10px}
-.home .ver-mas{ height: 75px;}
+.ver-mas{ height: 65px; margin-left: -15px; margin-top: 15px; 
+    background-image: url('/assets/images/celeste.png'), url('/assets/images/celeste_repeat.png');
+    background-repeat: no-repeat, repeat-x; width: calc(100% + 30px);}
+.ver-mas p{margin: 27px 15px 0px 0px; color: white; font-weight: bold; line-height: 37px; font-size: 20px;}
 
-aside h2{ font-size: 23px; font-weight: bolder; margin: 0px 0px 15px 0px}
-aside .row{ margin:20px 0 0 0;padding-bottom: 20px; border-bottom: 2px solid #e8e8e8;}
-/*aside img{ 
-    -webkit-box-shadow: 0px 10px 12px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 10px 12px -4px rgba(0,0,0,0.75);
-    box-shadow: 0px 10px 12px -4px rgba(0,0,0,0.75);
-}*/
+aside h2{ font-size: 20px; font-weight: bolder; margin: 0px;}
+aside .concursante{ margin:20px 0px 0px 15px; padding-bottom: 20px; border-bottom: 2px solid #e8e8e8; display: inline-block; }
+aside .concursante i{ margin-right: 5px; }
+aside .concursante img {padding-left: 0px;}
+
+/* Login Form */
+.login { height: calc(100% - 135px)}
+
+
+/* Custom bug logo */
+@media (max-width: 375px) { 
+
+    .menu h1 { margin-top:8px}
+    .menu h1 a { width: 186px; height: 35px;}
+    .navbar-header{line-height: 50px;}
+
+    .participa h2{background: none}
+}
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
-    .wrapper nav { margin: 0; }
 
-    .participa{ margin-top: 141px; padding-top:10px; background: none; text-align: left; }
-    .participa h4{ padding-left: 83px; overflow: hidden}
+    .divider{ display: inline-block;}
+    .wrapper nav { margin: 0; }
+    .participa{ border: none; margin-top: 132px; padding-top:10px; background: none; text-align: left; padding-bottom:15px;}
+    .participa h2{ padding-left: 83px; overflow: hidden}
     .participa p{ overflow: hidden}
-    .calendar{ background: none; padding: 0px}
+    .calendar{border: none; background: none; padding: 0px}
+    input.search{width: 140px !important;}
+
+
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-
-    .participa p{ font-size: 13px}
-
-
+    .participa > div{ margin-left: 0px; }
     aside h3{ margin: 4px 0px 2px 0px; font-size:13px; font-weight: bold}
-
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .participa h4{padding-left: 98px; background-position: 15px }
+    .participa {margin-top: 82px; margin-bottom: 46px}
+    .participa h2{padding-left: 98px; background-position: 15px }
     .participa p{padding-left: 15px; font-size: 16px}
 
-    .participa {margin-top: 80px; margin-bottom: 61px}
 }

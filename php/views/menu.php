@@ -1,11 +1,12 @@
 <nav class="menu navbar navbar-default fixed col-xs-12" role="navigation">
-    <div class="navbar-header col-sm-2">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
+        <h1><a class="navbar-brand" href="/">Concursando</a></h1>
     </div>
     <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="nav navbar-nav">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/participa/">Particip&aacute;</a></li>
+            <li><a href="/participa/">Concursos</a></li>
+            <li class="divider">|</li>
             <li><a href="/login/">Cre&aacute; tu concurso</a></li>
         </ul>
         <?php if (isset($_SESSION['userdata'])) { ?>
@@ -14,7 +15,6 @@
                     <ul class="dropdown-menu">
                         <li><a href="/perfil/">Perfil</a></li>
                         <li><a href="/ayuda/">Ayuda</a></li>
-                        <li class="divider"></li>
                         <li><a href="/logout/">Cerrar Sesi&oacute;n</a></li>
                     </ul>
                 </li>

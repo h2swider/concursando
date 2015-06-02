@@ -3,9 +3,9 @@
         <!--<h3>Nuevos concursos</h3>
         <p>Anotate, participá y ganá los mejores premios</p>-->
     </article>
-    <article class="text-center participa col-xs-12 col-sm-offset-7 col-sm-5 col-md-offset-9 col-md-3 ">
+    <article class="text-center participa col-xs-12 col-sm-offset-6 col-sm-6 col-md-offset-9 col-md-3 ">
         <div>
-            <h4>CREA TU <span>CONCURSO</span></h4>
+            <h2>CREA TU <span>CONCURSO</span></h2>
             <p>De manera rápida y sencilla</p>
         </div>
     </article>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <ul class="col-xs-6 social">
+            <ul class="col-xs-6 social text-center">
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -43,7 +43,7 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
@@ -79,11 +79,11 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
-    <div class="hidden-xs col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
         <div>
             <div class="img" style="background-image: url('/assets/images/c4.jpg'); ">
                 <div></div>
@@ -97,11 +97,11 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
-    <div class="hidden-xs col-sm-4 col-md-4 col-lg-3 top-buffer-xl ">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-buffer-xl ">
         <div>
             <div class="img" style="background-image: url('/assets/images/c5.jpg'); ">
                 <div></div>
@@ -115,11 +115,11 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
-    <div class="hidden-xs col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
         <div>
             <div class="img" style="background-image: url('/assets/images/c6.jpg'); ">
                 <div></div>
@@ -133,11 +133,11 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
-    <div class="hidden-xs hidden-sm hidden-md col-lg-3 top-buffer-xl">
+    <div class="col-xs-12 hidden-sm hidden-md col-lg-3 top-buffer-xl">
         <div>
             <div class="img" style="background-image: url('/assets/images/c1.jpg'); ">
                 <div></div>
@@ -151,11 +151,11 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
-    <div class="hidden-xs hidden-sm hidden-md col-lg-3 top-buffer-xl">
+    <div class="col-xs-12 hidden-sm hidden-md col-lg-3 top-buffer-xl">
         <div>
             <div class="img" style="background-image: url('/assets/images/c2.jpg'); ">
                 <div></div>
@@ -169,49 +169,50 @@
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
                     <div>530 participantes</div>
-                </div><div>></div>
+                </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
     </div>
     <div class="col-xs-12 ver-mas">
-
+        <p class="text-right">Ver todos</p>
     </div>
 </section>
 <aside class="hidden-xs hidden-sm col-md-3 top-buffer-xl">
-    <h2>Últimos ganadores</h2>
+    <h2 class="col-xs-12">Últimos ganadores</h2>
     <div class="row">
         <div class="col-xs-12">
-            <div>
+            <div class="concursante">
                 <img src="/assets/images/p1.jpg" alt="ganador 1" class="col-xs-4 img-responsive"/>
                 <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8">11 Mayo 2015</p>
+                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <div>
+            <div class="concursante">
+
                 <img src="/assets/images/p2.jpg" alt="ganador 1" class="col-xs-4 img-responsive"/>
                 <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8">11 Mayo 2015</p>
+                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <div>
+            <div class="concursante">
                 <img src="/assets/images/p3.jpg" alt="ganador 1" class="col-xs-4 img-responsive"/>
                 <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8">11 Mayo 2015</p>
+                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <div>
+            <div class="concursante">
                 <img src="/assets/images/p4.jpg" alt="ganador 1" class="col-xs-4" img-responsive/>
                 <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8">11 Mayo 2015</p>
+                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
     </div>

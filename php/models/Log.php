@@ -12,29 +12,29 @@
  * @author u62643
  */
 class Log {
-    
-    public function __construct(){
+
+    public function __construct() {
         
     }
-    
-    private static function formatData($data){
-        
+
+    private static function formatData($data) {
+
         $str = "[" . date('Y-m-d H:i:s') . " / " . $_SERVER['REMOTE_ADDR'] . "]\n";
-		if (is_array($data)) {
-			foreach($data as $key => $value){
-				if (!is_array($value)) {
-					$str .= "$key: $value\n";
-				} else {
-					$str.= "$key: ".json_encode($value)."\n";
-				}
-			}
-		} else {
-			$str.= $data."\n";
-		}
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                if (!is_array($value)) {
+                    $str .= "$key: $value\n";
+                } else {
+                    $str.= "$key: " . json_encode($value) . "\n";
+                }
+            }
+        } else {
+            $str.= $data . "\n";
+        }
         $str .= "-----------------------------------------------------------------------------\n\n";
         return $str;
     }
-    
+
     public static function error($data) {
         file_put_contents(ROOT . '/logs/error.txt', self::formatData($data), FILE_APPEND);
     }
@@ -62,6 +62,5 @@ class Log {
     public static function devMail($data) {
         file_put_contents(ROOT . '/logs/dev_mail.txt', self::formatData($data), FILE_APPEND);
     }
-	
 
 }
