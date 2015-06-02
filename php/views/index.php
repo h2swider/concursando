@@ -42,7 +42,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -60,7 +60,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -78,7 +78,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -132,7 +132,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -150,7 +150,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -168,7 +168,7 @@
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </div>
-                    <div>530 participantes</div>
+                    <div><i class="fa fa-child"></i>530 participantes</div>
                 </div><div><i class="fa fa-angle-right"></i></div>
             </div>
         </div>
@@ -177,14 +177,14 @@
         <p class="text-right">Ver todos</p>
     </div>
 </section>
-<aside class="hidden-xs hidden-sm col-md-3 top-buffer-xl">
+<aside class="noticias hidden-xs hidden-sm col-md-3 top-buffer-xl">
     <h2 class="col-xs-12">Últimos ganadores</h2>
     <div class="row">
         <div class="col-xs-12">
             <div class="concursante">
-                <img src="/assets/images/p1.jpg" alt="ganador 1" class="col-xs-4 img-responsive"/>
-                <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
+                <img src="/assets/images/p1.jpg" alt="ganador 1" class="col-xs-4 col-lg-3 img-responsive"/>
+                <h3 class="col-xs-8 col-lg-9">Concurso Coca Cola</h3>
+                <p class="col-xs-8 col-lg-9"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
     </div>
@@ -192,28 +192,36 @@
         <div class="col-xs-12">
             <div class="concursante">
 
-                <img src="/assets/images/p2.jpg" alt="ganador 1" class="col-xs-4 img-responsive"/>
-                <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
+                <img src="/assets/images/p2.jpg" alt="ganador 1" class="col-xs-4 col-lg-3 img-responsive"/>
+                <h3 class="col-xs-8 col-lg-9">Concurso Coca Cola</h3>
+                <p class="col-xs-8 col-lg-9"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <div class="concursante">
-                <img src="/assets/images/p3.jpg" alt="ganador 1" class="col-xs-4 img-responsive"/>
-                <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
+                <img src="/assets/images/p3.jpg" alt="ganador 1" class="col-xs-4 col-lg-3 img-responsive"/>
+                <h3 class="col-xs-8 col-lg-9">Concurso Coca Cola</h3>
+                <p class="col-xs-8 col-lg-9"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
             <div class="concursante">
-                <img src="/assets/images/p4.jpg" alt="ganador 1" class="col-xs-4" img-responsive/>
-                <h3 class="col-xs-8">Concurso Coca Cola</h3>
-                <p class="col-xs-8"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
+                <img src="/assets/images/p4.jpg" alt="ganador 1" class="col-xs-4 col-lg-3 img-responsive"/>
+                <h3 class="col-xs-8 col-lg-9">Concurso Coca Cola</h3>
+                <p class="col-xs-8 col-lg-9"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>
             </div>
         </div>
+    </div>
+    <div class="col-xs-12 top-buffer-xl">
+        <h2 >Newsletter</h2>
+        <p>Suscribite a nuestras noticias para estar al tanto de los últimos concursos.</p>
+        <form method="post" action="/">
+            <input type="input" class="form-control" id="email" name="email" placeholder="Email"/>
+            <button type="submit" class="btn btn-default pull-right">Enviar</button>
+        </form>
     </div>
 </aside>

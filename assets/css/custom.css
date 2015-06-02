@@ -11,14 +11,14 @@ footer .nav-inferior{ list-style: none; padding: 0px; margin: 0px}
 footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block;}
 footer .nav-inferior li a{ padding-left: 15px; padding-right: 15px}
 footer a {color: white}
-footer .social li{display: inline-block; margin: 0px 15px;}
+footer .social li{display: inline-block; margin: 0px 12px;}
 
 
 /* Clases propias */
 .pad-top-buffer { padding-top: 10px; }
 .pad-top-buffer-md { padding-top: 20px; }
 .top-buffer { margin-top: 10px; }
-.top-buffer-xl { margin-top: 50px; }
+.top-buffer-xl { margin-top: 30px; }
 .bottom-buffer  { margin-bottom: 15px; }
 .column { height: 100%; }
 .box { position: fixed; top: 0; left: 0; }
@@ -43,13 +43,17 @@ footer .social li{display: inline-block; margin: 0px 15px;}
 .menu h1{ margin:0px; padding: 0px; }
 .menu h1 a{  background-image: url('/assets/images/logo.png'); width: 266px; background-size: cover;
              text-indent: -3000px; overflow: hidden}
+.menu .navbar-collapse.collapse,
+.menu .collapsing{ border-top: none !important;  box-shadow: none !important;}
+.menu .navbar-form.navbar-right{ box-shadow: none; border: none;}
 
 .navbar-default { background: #262a38; border-radius: 0px; border: 0px; margin: 0px;}
 .navbar-default .navbar-nav > li > a{ color: #d4d5e2; }
 .navbar-default .glyphicon{ color: white; top: 0px; background: #9dcbca; } /*Bug addon*/
 .menu .input-group-addon {border: 1px solid #9DCBCA}
 
-.navbar-default .navbar-toggle{ background-color: #87CBCB; border-color: #87CBCB;  }
+.navbar-default .navbar-toggle, .navbar-default .navbar-toggle:focus{ background-color: #87CBCB; border-color: #87CBCB;  }
+.navbar-default .navbar-toggle:hover{ background-color: #417B7F; border-color: #417B7F;  }
 .navbar-default .navbar-toggle .icon-bar{background-color: #262A38; }
 /* Fin menu */
 
@@ -99,14 +103,20 @@ footer .social li{display: inline-block; margin: 0px 15px;}
                                        font-size: 30px; cursor: pointer}
 .description > div > div{ line-height: 32px; margin-left: 10px}
 .ver-mas{ height: 65px; margin-left: -15px; margin-top: 15px; 
-    background-image: url('/assets/images/celeste.png'), url('/assets/images/celeste_repeat.png');
-    background-repeat: no-repeat, repeat-x; width: calc(100% + 30px);}
+          background-image: url('/assets/images/celeste.png'), url('/assets/images/celeste_repeat.png');
+          background-repeat: no-repeat, repeat-x; width: calc(100% + 30px);}
 .ver-mas p{margin: 27px 15px 0px 0px; color: white; font-weight: bold; line-height: 37px; font-size: 20px;}
 
-aside h2{ font-size: 20px; font-weight: bolder; margin: 0px;}
-aside .concursante{ margin:20px 0px 0px 15px; padding-bottom: 20px; border-bottom: 2px solid #e8e8e8; display: inline-block; }
-aside .concursante i{ margin-right: 5px; }
-aside .concursante img {padding-left: 0px;}
+.noticias h2{ font-size: 20px; font-weight: bolder; margin: 0px;}
+.noticias .concursante{ margin:15px 0px 0px 10px; padding-bottom: 20px; border-bottom: 2px solid #e8e8e8; display: inline-block; }
+.noticias .concursante i{ margin-right: 5px; }
+.noticias .concursante img {padding-left: 0px; padding-right: 0px; border: 2px solid #dadadb;}
+.noticias .concursante img {
+    -webkit-box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.75);
+}
+.noticias input, .noticias button{ margin-bottom: 15px;}
 
 /* Login Form */
 .login { height: calc(100% - 135px)}
@@ -125,6 +135,9 @@ aside .concursante img {padding-left: 0px;}
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
 
+    .menu .navbar-collapse.collapse,
+    .menu .collapsing{ border: none !important;}
+
     .divider{ display: inline-block;}
     .wrapper nav { margin: 0; }
     .participa{ border: none; margin-top: 132px; padding-top:10px; background: none; text-align: left; padding-bottom:15px;}
@@ -132,13 +145,11 @@ aside .concursante img {padding-left: 0px;}
     .participa p{ overflow: hidden}
     .calendar{border: none; background: none; padding: 0px}
     input.search{width: 140px !important;}
-
-
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
     .participa > div{ margin-left: 0px; }
-    aside h3{ margin: 4px 0px 2px 0px; font-size:13px; font-weight: bold}
+    .noticias h3{ margin: 4px 0px 2px 0px; font-size:13px; font-weight: bold}
 }
 
 /* Large devices (large desktops, 1200px and up) */
