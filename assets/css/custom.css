@@ -62,7 +62,9 @@ footer .nav-inferior li{ line-height: 60px; height: 60px; display: inline-block;
     -moz-box-shadow: 0px 10px 12px -4px rgba(0,0,0,0.75);
     box-shadow: 0px 10px 12px -4px rgba(0,0,0,0.75);
 }
-.home .img{ height: 250px; background-repeat: no-repeat; background-position: center}
+.home .img{ height: 250px; background-repeat: no-repeat; background-position: top center}
+.home .img > div:first-child{ height: 180px;;}
+.home .img > div:last-child{ line-height:35px; color:white; padding-top: 25px; text-align: center; height: 65px; background-image: url('/assets/images/gris.png'); margin-bottom: 5px}
 .home .description{ height: 65px; color: #262a38}
 .home .description .fa{ margin-right: 10px; color: #262a38}
 .home .description > div{ display: inline-block}

@@ -31,7 +31,10 @@
 <section class="home col-xs-12 col-md-9">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c1.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c1.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
@@ -46,7 +49,10 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c2.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c2.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
@@ -61,7 +67,10 @@
     </div>
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c3.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c3.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
@@ -76,7 +85,10 @@
     </div>
     <div class="hidden-xs col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c4.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c4.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
@@ -91,7 +103,10 @@
     </div>
     <div class="hidden-xs col-sm-4 col-md-4 col-lg-3 top-buffer-xl ">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c5.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c5.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
@@ -106,7 +121,10 @@
     </div>
     <div class="hidden-xs col-sm-4 col-md-4 col-lg-3 top-buffer-xl">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c6.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c6.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
@@ -121,7 +139,10 @@
     </div>
     <div class="hidden-xs hidden-sm hidden-md col-lg-3 top-buffer-xl">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c1.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c1.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
@@ -136,7 +157,10 @@
     </div>
     <div class="hidden-xs hidden-sm hidden-md col-lg-3 top-buffer-xl">
         <div>
-            <div class="img" style="background-image: url('/assets/images/c2.jpg'); "></div>
+            <div class="img" style="background-image: url('/assets/images/c2.jpg'); ">
+                <div></div>
+                <div>Lorem ipsum dolor sit amet</div>
+            </div>
             <div class="description">
                 <div>
                     <div>
