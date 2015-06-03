@@ -11,41 +11,41 @@
         <div class="form-group">
             <div class="input-group">
                 <label class="control-label input-group-addon" for="nombre">Nombre del concurso</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" maxlength="45" autofocus="true" />
+                <input type="text" class="form-control required" id="nombre" name="nombre" maxlength="45" autofocus="true" />
             </div>
             <div class="help-block with-errors">Ingrese el nombre del concurso</div>
         </div>
         <div class="form-group">
             <div class="input-group">
                 <label class="control-label input-group-addon" for="organizacion">Organizaci&oacute;n / empresa</label>
-                <input type="text" class="form-control" id="organizacion" name="organizacion" maxlength="100" autofocus="true" />
+                <input type="text" class="form-control required" id="organizacion" name="organizacion" maxlength="100" autofocus="true" />
             </div>
             <div class="help-block with-errors">Ingrese el nombre de su organizaci&oacute;n / empresa</div>
         </div>
         <div class="form-group">
             <div class="input-group">
                 <label class="control-label input-group-addon" for="f_inicio">Fecha de inicio</label>
-                <input type="date" class="form-control" id="f_inicio" name="f_inicio"/>
+                <input type="date" class="form-control required" id="f_inicio" name="f_inicio"/>
             </div>
             <div class="help-block with-errors">Ingrese la fecha de inicio del concurso</div>
         </div>
         <div class="form-group">
             <div class="input-group">
                 <label class="control-label input-group-addon" for="f_fin">Fecha de fin</label>
-                <input type="date" class="form-control" id="f_fin" name="f_fin"/>
+                <input type="date" class="form-control required" id="f_fin" name="f_fin"/>
             </div>
             <div class="help-block with-errors">Ingrese la fecha de fin del concurso</div>
         </div>
         <div class="form-group">
             <div class="input-group">
                 <label class="control-label input-group-addon" for="descripcion">Descripci&oacute;n</label>
-                <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
+                <textarea class="form-control required" id="descripcion" name="descripcion"></textarea>
             </div>
             <div class="help-block with-errors">Ingrese la descripci&oacute;n de su concurso</div>
         </div>
         <div class="form-group">
             <div class="input-group">
-                <input type="file" id="archivo" name="archivo" />
+                <input type="file" id="archivo" name="archivo" class="required" />
             </div>
             <div class="help-block with-errors">Seleccione una imagen para su concurso</div>
         </div>
@@ -63,7 +63,6 @@
                     <div class="input-group">
                         <label class="input-group-addon control-label" for="tipo">Tipo de pregunta</label>
                         <select name="tipo[]" class="tipo form-control">
-                            <option value="">Seleccionar Tipo de pregunta...</option>
                             <?php foreach($data['tipos_pregunta'] as $tipo_pregunta) { ?>
                                 <option value="<?php echo $tipo_pregunta['id_tipo_pregunta']; ?>"><?php echo $tipo_pregunta['descripcion']; ?></option>
                             <?php } ?>
