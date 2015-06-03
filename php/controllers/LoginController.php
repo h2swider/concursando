@@ -11,7 +11,8 @@ class LoginController extends Controller {
         parent::cargarVista("header.php");
         parent::cargarVista("menu.php");
         if (isset($_SESSION['userdata'])) {
-            parent::cargarVista("panel.php", $data);
+            header("location:/panel");
+            exit;
         } else {
             parent::cargarVista("form_login.php", $data);
         }

@@ -191,7 +191,6 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="concursante">
-
                 <img src="/assets/images/p2.jpg" alt="ganador 1" class="col-xs-4 col-lg-3 img-responsive"/>
                 <h3 class="col-xs-8 col-lg-9">Concurso Coca Cola</h3>
                 <p class="col-xs-8 col-lg-9"><i class="fa fa-clock-o"></i>11 Mayo 2015</p>

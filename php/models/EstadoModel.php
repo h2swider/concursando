@@ -12,10 +12,12 @@ class EstadoModel {
         $this->conexion = Conexion::getInstance()->conex;
     }
 
-    public function insertUsuarioEstado($id_usuario, $id_estado) {
-
+    public function insertUsuarioEstado($id_usuario,  $id_estado, $fecha = false) {
         try {
-            $fecha = date('Y-m-d H:i:s');
+            if (!$fecha) {
+                $fecha = date('Y-m-d H:i:s');
+            }
+            /* Es importante que la fecha venga de afuera para asegurarme que sea igual al token */
             $sql = "INSERT INTO usuario_estado (fecha, id_estado, id_usuario) VALUES (:fecha, :id_estado, :id_usuario)";
             $query = $this->conexion->prepare($sql);
             $query->bindParam(":fecha", $fecha, PDO::PARAM_STR);

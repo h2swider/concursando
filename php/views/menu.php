@@ -30,13 +30,5 @@
 </nav>
 <div class="container-fluid">
     <div class="row top-buffer-xl">
-        <?php if (isset($_SESSION['userdata'])) { ?>
-            <nav class="navbar col-xs-12 col-sm-2 fixed pad-top-buffer-md">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Crear Concurso</a>
-                    <a href="#" class="list-group-item">Mis Concursos</a>
-                </div>
-            </nav>
-        <?php } ?>
-        <main class="<?php echo isset($_SESSION['userdata']) ? 'col-xs-10 col-xs-offset-2' : 'col-xs-12'; ?>">
+        <main class="col-xs-12">
 

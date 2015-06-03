@@ -12,7 +12,7 @@ class RegistroController extends Controller {
         $paises = new PaisModel();
         $data['paises'] = $paises->getPaises();
         parent::cargarVista('header.php');
-		parent::cargarVista('menu.php');
+        parent::cargarVista('menu.php');
         parent::cargarVista('form_registro.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
@@ -50,9 +50,9 @@ class RegistroController extends Controller {
     }
 
     public function sucess($data) {
-        $data['msg'] = 'Su cuenta <strong>'.$data['url'].'</strong> fue creada con exito, el siguiente paso es confirmar el mail.';  
+        $data['msg'] = 'Su cuenta <strong>' . $data['url'] . '</strong> fue creada con exito, el siguiente paso es confirmar el mail.';
         parent::cargarVista('header.php');
-		parent::cargarVista('menu.php');
+        parent::cargarVista('menu.php');
         parent::cargarVista('form_login.php', $data);
         parent::cargarVista('footer.php', get_class());
     }
@@ -63,7 +63,7 @@ class RegistroController extends Controller {
         $data['post']['f_alta'] = date('Y-m-d H:i:s');
         $data['post']['password'] = md5($data['post']['password'] . SALT);
         $userID = $usuario->guardarUsuario($data['post']);
-        $estadoID = $estado->insertUsuarioEstado($userID, EstadoModel::CONFIRMAR);
+        $estadoID = $estado->insertUsuarioEstado($userID, EstadoModel::CONFIRMAR, $data['post']['f_alta']);
         if ($userID && $estadoID) {
             Mail::registro($data['post']['email'], $userID . "-" . md5($data['post']['f_alta'] . SALT));
             header("Location: /registro/exito/{$data['post']['email']}");
@@ -73,19 +73,19 @@ class RegistroController extends Controller {
             exit;
         }
     }
-    
+
     public function confirm($data) {
         $estado = new EstadoModel();
         $id_usuario = $estado->confirmarUsuario($data['url']);
+        
         if ($id_usuario) {
             $estado->insertUsuarioEstado($id_usuario, EstadoModel::HABILITADO);
             header("Location: /login/cuenta-confirmada");
             exit;
         } else {
-           header("Location: /login/error-confirmar");
+            header("Location: /login/error-confirmar");
             exit;
         }
-        
     }
 
 }
