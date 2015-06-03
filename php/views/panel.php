@@ -50,31 +50,37 @@
             <div class="help-block with-errors">Seleccione una imagen para su concurso</div>
         </div>
         <h3>Preguntas</h3>
-        <div class="form-group">
-            <div class="input-group">
-                <label class="control-label input-group-addon">Pregunta</label>
-                <input type="text" class="form-control" name="pregunta[]"/>
-            </div>
-            <div class="help-block with-errors">Indique el t&iacute;tulo de su pregunta</div>
-        </div>
-        <div class="form-group">
-            <div class="input-group">
-                <label class="input-group-addon control-label" for="tipo">Tipo de pregunta</label>
-                <select id="tipo" name="tipo[]" class="form-control">
-                    <option value="">Seleccionar Tipo de pregunta...</option>
-                </select>
-            </div>
-            <div class="help-block with-errors">Seleccione un tipo de pregunta</div>
-        </div>
-        <button type="button" class="btn btn-default pull-right">Agregar otra pregunta</button>
-    </form>
+        <div class="preguntas-container">
+            <div class="pregunta">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label class="control-label input-group-addon">Pregunta</label>
+                        <input type="text" class="form-control" name="pregunta[]"/>
+                    </div>
+                    <div class="help-block with-errors">Indique el t&iacute;tulo de su pregunta</div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <label class="input-group-addon control-label" for="tipo">Tipo de pregunta</label>
+                        <select name="tipo[]" class="tipo form-control">
+                            <option value="">Seleccionar Tipo de pregunta...</option>
+                            <?php foreach($data['tipos_pregunta'] as $tipo_pregunta) { ?>
+                                <option value="<?php echo $tipo_pregunta['id_tipo_pregunta']; ?>"><?php echo $tipo_pregunta['descripcion']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="help-block with-errors">Seleccione un tipo de pregunta</div>
+                </div>
+             </div>
+         </div>
+        <button type="button" class="btn btn-default pull-right" id="agregar_pregunta">Agregar otra pregunta</button>
     <div>
         <h3>Previsualizacion</h3>
     </div>
 
     <button type="submit" class="btn btn-default pull-right">Crear</button>
     <a href="/login/" alt="volver" id="volver" class="btn btn-link pull-right">Cancelar</a>
-
+    </form>
 </section>
 
 <!-- Modal -->

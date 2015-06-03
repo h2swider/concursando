@@ -65,8 +65,7 @@ var particular = {
                 global.addError($(this), 'Seleccione un país');
             } else {
                 global.addSuccess($(this), 'ok');
-            }
-            ;
+            };
         });
         $("input[type='password']").on("blur", function(evt) {
             if (global.validatePasswords($("input[type='password']"))) {
