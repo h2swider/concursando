@@ -7,7 +7,7 @@
 <section class="crear-concurso col-xs-12 col-md-offset-2 col-md-10 bottom-buffer top-buffer-xl">
     <h2>Cre&aacute; tu concurso</h2>
     <h3>Datos iniciales</h3>
-    <form id="crear" role="form" method="POST" action="/panel">
+    <form id="crear" role="form" method="POST" action="/panel/crear-concurso">
         <div class="form-group">
             <div class="input-group">
                 <label class="control-label input-group-addon" for="nombre">Nombre del concurso</label>
@@ -50,28 +50,7 @@
             <div class="help-block with-errors">Seleccione una imagen para su concurso</div>
         </div>
         <h3>Preguntas</h3>
-        <div class="preguntas-container">
-            <div class="pregunta">
-                <div class="form-group">
-                    <div class="input-group">
-                        <label class="control-label input-group-addon">Pregunta</label>
-                        <input type="text" class="form-control" name="pregunta[]"/>
-                    </div>
-                    <div class="help-block with-errors">Indique el t&iacute;tulo de su pregunta</div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <label class="input-group-addon control-label" for="tipo">Tipo de pregunta</label>
-                        <select name="tipo[]" class="tipo form-control">
-                            <?php foreach($data['tipos_pregunta'] as $tipo_pregunta) { ?>
-                                <option value="<?php echo $tipo_pregunta['id_tipo_pregunta']; ?>"><?php echo $tipo_pregunta['descripcion']; ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                    <div class="help-block with-errors">Seleccione un tipo de pregunta</div>
-                </div>
-             </div>
-         </div>
+        <div class="preguntas-container col-xs-12"></div>
         <button type="button" class="btn btn-default pull-right" id="agregar_pregunta">Agregar otra pregunta</button>
     <div>
         <h3>Previsualizacion</h3>
@@ -98,5 +77,34 @@
                 <button type="button" class="btn btn-primary continue">Continuar</button>
             </div>
         </div>
+    </div>
+</div>
+
+
+<!-- Dummy Pregunta -->
+<div class="col-xs-12">
+    <div class="pregunta hidden dummy row">
+        <div class="bottom-buffer header-box col-xs-12" >
+            <button class="btn btn-danger remover-pregunta pull-right"><i class="fa fa-close"></i></button>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="control-label input-group-addon">Pregunta</label>
+                    <input type="text" class="form-control pregunta-titulo" name="pregunta[0]"/>
+                </div>
+                <div class="help-block with-errors">Indique el t&iacute;tulo de su pregunta</div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <label class="input-group-addon control-label" for="tipo">Tipo de pregunta</label>
+                    <select name="tipo[]" class="tipo form-control">
+                        <?php foreach($data['tipos_pregunta'] as $tipo_pregunta) { ?>
+                            <option value="<?php echo $tipo_pregunta['id_tipo_pregunta']; ?>"><?php echo $tipo_pregunta['descripcion']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+             <div class="help-block with-errors">Seleccione un tipo de pregunta</div>
+         </div>
     </div>
 </div>
