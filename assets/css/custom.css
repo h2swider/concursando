@@ -1,3 +1,5 @@
+body{ font-family: 'Raleway', sans-serif; color: #4c4d52}
+
 nav[role="navigation"] { z-index: 999; }
 
 div.container-fluid > div{ margin-top: 80px}
@@ -75,7 +77,7 @@ footer .social li{display: inline-block; margin: 0px 12px;}
 .participa p{font-size: 16px; margin: 5px 0px 0px 0px;  padding-left: 2px;}
 
 .calendar{color: white; padding:10px 0px; background-color: #577a7e; border-bottom: 5px solid white}
-.calendar .day{font-size: 45px; line-height: 60px; padding-right: 0px; margin-right: -30px}
+.calendar .day{font-size: 45px; line-height: 60px; padding-right: 0px; margin-right: -30px; font-family: arial}
 .calendar p:first-child{border-bottom: 1px solid white; text-transform: uppercase; margin-top: 10px}
 .calendar p{margin: 0px; line-height: 20px;}
 .calendar li{display: inline-block; margin: 0px 9px;}
@@ -94,7 +96,7 @@ footer .social li{display: inline-block; margin: 0px 12px;}
 .home .img{ height: 250px; background-repeat: no-repeat; background-position: top center}
 .home .img > div:first-child{ height: 180px;;}
 .home .img > div:last-child{ line-height:35px; color:white; padding-top: 25px; text-align: center; height: 65px; background-image: url('/assets/images/gris.png'); margin-bottom: 5px}
-.home .description{ height: 65px; color: #262a38}
+.home .description{ height: 65px; color: #4c4d52}
 .home .description > div:first-child .fa{ margin-right: 10px; color: #262a38}
 .home .description > div{ display: inline-block}
 .home .description > div:nth-child(1){ width: calc(100% - 30px)}
@@ -107,7 +109,7 @@ footer .social li{display: inline-block; margin: 0px 12px;}
           background-repeat: no-repeat, repeat-x; width: calc(100% + 30px);}
 .ver-mas p{margin: 27px 15px 0px 0px; color: white; font-weight: bold; line-height: 37px; font-size: 20px;}
 
-.noticias h2{ font-size: 20px; font-weight: bolder; margin: 0px;}
+.noticias h2{ font-size: 20px; font-weight: bolder; margin: 0px; font-family: arial}
 .noticias .concursante{ margin:15px 0px 0px 10px; padding-bottom: 20px; border-bottom: 2px solid #e8e8e8; display: inline-block; }
 .noticias .concursante i{ margin-right: 5px; }
 .noticias .concursante img {padding-left: 0px; padding-right: 0px; border: 2px solid #dadadb; max-width: 90px}
