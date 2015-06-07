@@ -50,14 +50,16 @@
             <div class="help-block with-errors">Seleccione una imagen para su concurso</div>
         </div>
         <h3>Preguntas</h3>
-        <div class="preguntas-container col-xs-12"></div>
-        <button type="button" class="btn btn-default pull-right" id="agregar_pregunta">Agregar otra pregunta</button>
-    <div>
-        <h3>Previsualizacion</h3>
-    </div>
-
-    <button type="submit" class="btn btn-default pull-right">Crear</button>
-    <a href="/login/" alt="volver" id="volver" class="btn btn-link pull-right">Cancelar</a>
+        <div class="preguntas-container col-xs-12">
+            <div class="row">
+                <button type="button" class="btn btn-default pull-right" id="agregar_pregunta">Agregar otra pregunta</button>
+            </div>
+        </div>
+        <div>
+            <h3>Previsualizacion</h3>
+        </div>
+        <button type="submit" class="btn btn-primary pull-right">Crear</button>
+        <a href="/login/" alt="volver" id="volver" class="btn btn-link pull-right">Cancelar</a>
     </form>
 </section>
 
@@ -96,15 +98,26 @@
                 <div class="help-block with-errors">Indique el t&iacute;tulo de su pregunta</div>
             </div>
             <div class="form-group">
+               <div class="input-group">
+                    <label class="input-group-addon control-label obligatorio" for="tipo">Pregunta obligatoria</label>
+                    <select name="requerido[0]" class="form-control requerido">
+                       <option value="S">Si</option>
+                       <option value="N">No</option>
+                    </select>
+                </div>
+                <div class="help-block with-errors">Seleccione si la pregunta va a ser obligatoria</div>
+            </div>
+            <div class="form-group">
                 <div class="input-group">
                     <label class="input-group-addon control-label" for="tipo">Tipo de pregunta</label>
-                    <select name="tipo[]" class="tipo form-control">
-                        <?php foreach($data['tipos_pregunta'] as $tipo_pregunta) { ?>
+                    <select name="tipo[]" class="tipo form-control tipo">
+                        <?php foreach ($data['tipos_pregunta'] as $tipo_pregunta) { ?>
                             <option value="<?php echo $tipo_pregunta['id_tipo_pregunta']; ?>"><?php echo $tipo_pregunta['descripcion']; ?></option>
                         <?php } ?>
                     </select>
                 </div>
-             <div class="help-block with-errors">Seleccione un tipo de pregunta</div>
-         </div>
+                <div class="help-block with-errors">Seleccione un tipo de pregunta</div>
+            </div>
+        </div>
     </div>
 </div>
