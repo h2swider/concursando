@@ -84,9 +84,9 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
     REFERENCES `tipo_pregunta` (`id_tipo_pregunta`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_concurso2`
+  CONSTRAINT `id_concurso1`
     FOREIGN KEY (`id_concurso`)
-    REFERENCES `concurso` (`id_usuario`)
+    REFERENCES `concurso` (`id_concurso`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `opcion` (
   INDEX `id_pregunta_idx` (`id_pregunta` ASC),
   CONSTRAINT `id_pregunta_3`
     FOREIGN KEY (`id_pregunta`)
-    REFERENCES `pregunta` (`id_concurso`)
+    REFERENCES `pregunta` (`id_pregunta`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `archivo_concurso` (
     REFERENCES `archivo` (`id_archivo`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_concurso1`
+  CONSTRAINT `id_concurso2`
     FOREIGN KEY (`id_concurso`)
     REFERENCES `concurso` (`id_concurso`)
     ON DELETE RESTRICT
@@ -306,7 +306,7 @@ CREATE TABLE `recupero` (
 -- Query: 
 -- Date: 2015-05-13 19:06
 */
-INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (1,'jpg','S');
+INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (1,'image/jpeg','S');
 INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (2,'png','S');
 INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (3,'bmp','S');
 INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (4,'doc','S');

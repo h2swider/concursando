@@ -29,6 +29,17 @@ class Controller {
 		return false;
 	}
 	
+	protected function validarTipoImagen($file) {
+		require_once(MODELS_PATH . "ArchivoModel.php");
+		$imagen = new ArchivoModel();
+		$tipos_permitidos = $imagen->getTypes(ArchivoModel::$imageTypes);
+		if (!in_array($file['type'], $tipos_permitidos)) {
+			return true;
+		}
+		return false;
+		
+	}
+	
 	protected function validarEmail($input) {
 		if (!filter_var($input, FILTER_VALIDATE_EMAIL)) {
 			Log::form('Mail incorrecto');

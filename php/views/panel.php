@@ -7,7 +7,7 @@
 <section class="crear-concurso col-xs-12 col-md-offset-2 col-md-10 bottom-buffer top-buffer-xl">
     <h2>Cre&aacute; tu concurso</h2>
     <h3>Datos iniciales</h3>
-    <form id="crear" role="form" method="POST" action="/panel/crear-concurso">
+    <form enctype="multipart/form-data" id="crear" role="form" method="POST" action="/panel/crear-concurso">
         <div class="form-group">
             <div class="input-group">
                 <label class="control-label input-group-addon" for="nombre">Nombre del concurso</label>

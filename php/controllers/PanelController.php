@@ -11,9 +11,6 @@ class PanelController extends Controller {
         parent::cargarVista('footer.php', get_class());
     }
     
-    public function createSurvey($data) {
-        var_dump($data);
-        var_dump($data['post']['opcion']);
-    }
+   
 
 }
