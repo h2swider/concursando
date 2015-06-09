@@ -9,7 +9,7 @@
                     </div>
                     <div class="help-block with-errors">Ingrese su email para recuperar la clave</div>
                 </div>
-                <button type="submit" class="btn btn-default pull-right">Recuperar Contrase&ntilde;a</button>
-                <a href="/login/" alt="volver" class="btn btn-link pull-right volver">Volver</a>
+                <button type="submit" class="btn btn-primary pull-right">Recuperar Contrase&ntilde;a</button>
+                <a href="/login/" alt="volver" class="btn btn-default pull-right volver">Volver</a>
             </form>
 </section>

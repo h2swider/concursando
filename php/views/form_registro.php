@@ -1,4 +1,4 @@
-<section class="col-xs-12 col-sm-8 col-sm-offset-2">
+<section class="registro bottom-buffer col-xs-12 col-sm-8 col-sm-offset-2">
     <h2>Registro de usuario</h2>
     <form id="register" role="form" method="POST" action="/registro/registrar-usuario/">
         <div class="form-group">
@@ -55,8 +55,9 @@
             </div>
             <div class="help-block with-errors">Ingrese su fecha de nacimiento</div>
         </div>
-        <button type="submit" class="btn btn-default pull-right">Registrarme</button>
-        <a href="/login/" alt="volver" id="volver" class="btn btn-link pull-right">Volver</a>
+        <button type="submit" class="btn btn-primary col-xs-12 col-sm-2 pull-right">Registrarme</button>
+        <a href="/login/" alt="volver" id="volver" class="btn btn-default col-xs-12 col-sm-2 pull-right">Volver</a>
+
     </form>
 
     <!-- Modal -->

@@ -2,8 +2,15 @@ var global = {
     errorIcon: '<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>',
     successIcon: '<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>',
     init: function() {
-
+        this.recalcularHeight();
     },
+    recalcularHeight: function(){
+        
+        var menu_height =  $('.menu').height();
+        var footer_height =  $('footer').height();
+        $('main').css('min-height', window.innerHeight - menu_height - footer_height - 28);
+    },
+    
     validateRequire: function(campo) {
         return campo.val() === '' ? true : false;
     },

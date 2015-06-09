@@ -86,6 +86,7 @@ footer .social li{display: inline-block; margin: 0px 12px;}
 .calendar .social-width p:first-child{ font-weight: bolder; font-size: 20px}
 /* Fin Banner*/
 
+/* Home */
 .home{ background-color: #eaebf0}
 .home > div >div{ background-color: white; border: 2px solid #dadadb; border-radius: 3px; padding: 5px;}
 .home > div >div{ 
@@ -119,9 +120,15 @@ footer .social li{display: inline-block; margin: 0px 12px;}
     box-shadow: 0px 5px 10px -4px rgba(0,0,0,0.75);
 }
 .noticias input, .noticias button{ margin-bottom: 15px;}
+/* Fin Home*/
 
 /* Login Form */
-.login { height: calc(100% - 135px)}
+.login { padding-top: 30px; padding-bottom: 30px;}
+/* Fin Login*/
+
+/* Registro */
+.registro form button{ margin-left: 5px;}
+/* Fin Registro*/
 
 /* Panel */
 .panel-izquierdo, .panel-izquierdo .list-group{ margin-bottom: 0px;}
