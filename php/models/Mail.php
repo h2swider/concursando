@@ -64,5 +64,25 @@ class Mail {
                 "</html>";
         self::sendMail($to, $asunto, $message, $headers);
     }
+    
+    public static function mailConcurso($to, $nombre) {
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n" .
+                'From: info@concursando.com.ar' . " " .
+                'Reply-To: no-responder@concursando.com.ar' . " ";
+
+        $asunto = "Recuperar clave en Concursando";
+        $message = "<html>" .
+                "<head><title>Concursando</title></head>" .
+                "<body>" .
+                "<p>Felicidades $nombre ya se encuentra participando en un sorteo de Concursando!</p>" .
+                "</body>" .
+                "</html>";
+        self::sendMail($to, $asunto, $message, $headers);
+        echo "<p>$to</p>";
+        echo "<p>$asunto</p>";
+        echo "<p>$message</p>";
+        echo "<p>$headers</p>";
+    }
 
 }

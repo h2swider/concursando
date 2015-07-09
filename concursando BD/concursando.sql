@@ -1,18 +1,22 @@
+-- Pese a parecer exportado de algun cliente mysql
+-- Todo el código de este archivo lo realice a mano
+-- Los indices para optimizar busquedas
+-- y los constraints con nombre personalizado e identificatorios no son la excepción.
+-- En caso de cualquier duda,
+-- lo invito a que me evalue o pregunte lo que crea pertinente
 
--- -----------------------------------------------------
--- Table `pais`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pais` (
+
+CREATE DATABASE IF NOT EXISTS `concursando` CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `concursando`;
+
+CREATE TABLE `pais` (
   `id_pais` INT NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_pais`))
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `usuario` (
+CREATE TABLE `usuario` (
   `id_usuario` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(100) NOT NULL,
   `f_alta` DATETIME NOT NULL ,
@@ -22,9 +26,9 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `apellido` VARCHAR(45) NOT NULL,
   `f_nacimiento` DATETIME NOT NULL ,
   PRIMARY KEY (`id_usuario`),
-  UNIQUE INDEX `usuariocol_UNIQUE` (`email` ASC),
-  INDEX `fk_usuario_pais1_idx` (`id_pais` ASC),
-  CONSTRAINT `fk_usuario_pais1`
+  UNIQUE INDEX `u_email_unique` (`email` ASC),
+  INDEX `u_id_pais_index` (`id_pais` ASC),
+  CONSTRAINT `u_id_pais_constraint`
     FOREIGN KEY (`id_pais`)
     REFERENCES `pais` (`id_pais`)
     ON DELETE RESTRICT
@@ -32,10 +36,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `concurso`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `concurso` (
+CREATE TABLE `concurso` (
   `id_concurso` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_usuario` INT UNSIGNED NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
@@ -46,8 +47,8 @@ CREATE TABLE IF NOT EXISTS `concurso` (
   `habilitado` CHAR(1) NOT NULL DEFAULT 'S',
   `f_creacion` DATETIME NOT NULL ,
   PRIMARY KEY (`id_concurso`),
-  INDEX `id_usuario_idx` (`id_usuario` ASC),
-  CONSTRAINT `id_usuario`
+  INDEX `c_id_usuario_index` (`id_usuario` ASC),
+  CONSTRAINT `c_id_usuario_constraint`
     FOREIGN KEY (`id_usuario`)
     REFERENCES `usuario` (`id_usuario`)
     ON DELETE RESTRICT
@@ -55,10 +56,7 @@ CREATE TABLE IF NOT EXISTS `concurso` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `tipo_pregunta`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tipo_pregunta` (
+CREATE TABLE `tipo_pregunta` (
   `id_tipo_pregunta` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(45) NOT NULL,
   `habilitado` CHAR(1) NOT NULL DEFAULT 'S',
@@ -66,10 +64,7 @@ CREATE TABLE IF NOT EXISTS `tipo_pregunta` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `pregunta`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pregunta` (
+CREATE TABLE `pregunta` (
   `id_pregunta` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_tipo_pregunta` TINYINT UNSIGNED NOT NULL,
   `id_concurso` INT UNSIGNED NOT NULL,
@@ -77,14 +72,14 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
   `habilitado` CHAR(1) NOT NULL DEFAULT 'S',
   `obligatorio` CHAR(1) NOT NULL DEFAULT 'S',
   PRIMARY KEY (`id_pregunta`),
-  INDEX `id_tipo_idx` (`id_tipo_pregunta` ASC),
-  INDEX `id_concurso_idx` (`id_concurso` ASC),
-  CONSTRAINT `id_tipo`
+  INDEX `p_id_tipo_index` (`id_tipo_pregunta` ASC),
+  INDEX `p_id_concurso_index` (`id_concurso` ASC),
+  CONSTRAINT `p_id_tipo_constraint`
     FOREIGN KEY (`id_tipo_pregunta`)
     REFERENCES `tipo_pregunta` (`id_tipo_pregunta`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_concurso1`
+  CONSTRAINT `p_id_concurso_constraint`
     FOREIGN KEY (`id_concurso`)
     REFERENCES `concurso` (`id_concurso`)
     ON DELETE RESTRICT
@@ -92,16 +87,13 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `opcion`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `opcion` (
+CREATE TABLE `opcion` (
   `id_opcion` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_pregunta` INT UNSIGNED NOT NULL,
   `descripcion` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id_opcion`),
-  INDEX `id_pregunta_idx` (`id_pregunta` ASC),
-  CONSTRAINT `id_pregunta_3`
+  INDEX `o_id_pregunta_index` (`id_pregunta` ASC),
+  CONSTRAINT `o_id_pregunta_constraint`
     FOREIGN KEY (`id_pregunta`)
     REFERENCES `pregunta` (`id_pregunta`)
     ON DELETE RESTRICT
@@ -109,36 +101,35 @@ CREATE TABLE IF NOT EXISTS `opcion` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `concursante`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `concursante` (
+CREATE TABLE `concursante` (
   `id_concursante` INT UNSIGNED NOT NULL,
+  `id_concurso` INT UNSIGNED NOT NULL,
   `f_alta` DATETIME NOT NULL,
   `ip` VARCHAR(45) NOT NULL,
   `navegador` TEXT NOT NULL,
   `email` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`id_concursante`))
+  PRIMARY KEY (`id_concursante`),
+  CONSTRAINT `c_id_concurso_constraint`
+    FOREIGN KEY (`id_concurso`)
+    REFERENCES `concurso` (`id_concurso`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `respuesta_texto`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `respuesta_texto` (
+CREATE TABLE `respuesta_texto` (
   `id_respuesta` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_pregunta` INT UNSIGNED NOT NULL,
   `texto` VARCHAR(255) NOT NULL,
   `id_concursante` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_respuesta`),
-  INDEX `id_pregunta_idx` (`id_pregunta` ASC),
-  INDEX `fk_respuesta_texto_concursante1_idx` (`id_concursante` ASC),
-  CONSTRAINT `id_pregunta_2`
+  INDEX `rt_id_pregunta_index` (`id_pregunta` ASC),
+  INDEX `rt_id_concursante_index` (`id_concursante` ASC),
+  CONSTRAINT `rt_id_pregunta_constraint`
     FOREIGN KEY (`id_pregunta`)
     REFERENCES `pregunta` (`id_pregunta`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_concursante2`
+  CONSTRAINT `rt_id_concursante_constraint`
     FOREIGN KEY (`id_concursante`)
     REFERENCES `concursante` (`id_concursante`)
     ON DELETE RESTRICT
@@ -146,22 +137,19 @@ CREATE TABLE IF NOT EXISTS `respuesta_texto` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `respuesta_opcion`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `respuesta_opcion` (
+CREATE TABLE `respuesta_opcion` (
   `id_respuesta_opcion` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_opcion` INT UNSIGNED NOT NULL,
   `id_concursante` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_respuesta_opcion`),
-  INDEX `id_opcion_idx` (`id_opcion` ASC),
-  INDEX `fk_respuesta_opcion_concursante1_idx` (`id_concursante` ASC),
-  CONSTRAINT `id_opcion`
+  INDEX `ro_id_opcion_index` (`id_opcion` ASC),
+  INDEX `ro_id_concursante_index` (`id_concursante` ASC),
+  CONSTRAINT `ro_id_opcion_constraint`
     FOREIGN KEY (`id_opcion`)
     REFERENCES `opcion` (`id_opcion`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_concursante3`
+  CONSTRAINT `ro_id_concursante_constraint`
     FOREIGN KEY (`id_concursante`)
     REFERENCES `concursante` (`id_concursante`)
     ON DELETE RESTRICT
@@ -169,10 +157,7 @@ CREATE TABLE IF NOT EXISTS `respuesta_opcion` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `tipo_archivo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tipo_archivo` (
+CREATE TABLE `tipo_archivo` (
   `id_tipo_archivo` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
   `descripcion` VARCHAR(45) NOT NULL,
   `habilitado` CHAR(1) NOT NULL,
@@ -180,16 +165,13 @@ CREATE TABLE IF NOT EXISTS `tipo_archivo` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `archivo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `archivo` (
+CREATE TABLE `archivo` (
   `id_archivo` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_tipo_archivo` TINYINT UNSIGNED NOT NULL,
   `nombre` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_archivo`),
-  INDEX `id_tipo_archivo_idx` (`id_tipo_archivo` ASC),
-  CONSTRAINT `id_tipo_archivo`
+  INDEX `a_id_tipo_index` (`id_tipo_archivo` ASC),
+  CONSTRAINT `a_id_tipo_constraint`
     FOREIGN KEY (`id_tipo_archivo`)
     REFERENCES `tipo_archivo` (`id_tipo_archivo`)
     ON DELETE RESTRICT
@@ -197,29 +179,26 @@ CREATE TABLE IF NOT EXISTS `archivo` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `respuesta_archivo`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `respuesta_archivo` (
+CREATE TABLE `respuesta_archivo` (
   `id_respuesta_archivo` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_pregunta` INT UNSIGNED NOT NULL,
   `id_archivo` INT UNSIGNED NOT NULL,
   `id_concursante` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_respuesta_archivo`),
-  INDEX `id_prega_idxa` (`id_pregunta` ASC),
-  INDEX `id_arch_idxa` (`id_archivo` ASC),
-  INDEX `fk_resp_archivo_concursante1_idxa` (`id_concursante` ASC),
-  CONSTRAINT `id_preg`
+  INDEX `ra_id_pregunta_index` (`id_pregunta` ASC),
+  INDEX `ra_id_archivo_index` (`id_archivo` ASC),
+  INDEX `ra_id_concursante_index` (`id_concursante` ASC),
+  CONSTRAINT `ra_id_pregunta_constraint`
     FOREIGN KEY (`id_pregunta`)
     REFERENCES `pregunta` (`id_pregunta`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_arch`
+  CONSTRAINT `ra_id_archivo_constraint`
     FOREIGN KEY (`id_archivo`)
     REFERENCES `archivo` (`id_archivo`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_concur2`
+  CONSTRAINT `ra_id_concursante_constraint`
     FOREIGN KEY (`id_concursante`)
     REFERENCES `concursante` (`id_concursante`)
     ON DELETE RESTRICT
@@ -227,22 +206,19 @@ CREATE TABLE IF NOT EXISTS `respuesta_archivo` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `archivo_concurso`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `archivo_concurso` (
+CREATE TABLE `archivo_concurso` (
   `id_archivo_concurso` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_archivo` INT UNSIGNED NOT NULL,
   `id_concurso` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_archivo_concurso`),
-  INDEX `id_archivo_idx` (`id_archivo` ASC),
-  INDEX `id_concurso_idx` (`id_concurso` ASC),
-  CONSTRAINT `id_archivo1`
+  INDEX `ac_id_archivo_index` (`id_archivo` ASC),
+  INDEX `ac_id_concurso_indes` (`id_concurso` ASC),
+  CONSTRAINT `ac_id_archivo_constraint`
     FOREIGN KEY (`id_archivo`)
     REFERENCES `archivo` (`id_archivo`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT,
-  CONSTRAINT `id_concurso2`
+  CONSTRAINT `ac_id_concurso_constraint`
     FOREIGN KEY (`id_concurso`)
     REFERENCES `concurso` (`id_concurso`)
     ON DELETE RESTRICT
@@ -250,72 +226,71 @@ CREATE TABLE IF NOT EXISTS `archivo_concurso` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `verificado`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `verificado` (
+CREATE TABLE `verificado` (
   `id_verificado` INT UNSIGNED NOT NULL,
   `f_verificado` DATETIME NOT NULL,
   `id_concursante` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id_verificado`),
-  INDEX `fk_verificado_concursante1_idx` (`id_concursante` ASC),
-  CONSTRAINT `fk_verificado_concursante1`
+  INDEX `v_id_concursante_index` (`id_concursante` ASC),
+  CONSTRAINT `v_id_concursante_constraint`
     FOREIGN KEY (`id_concursante`)
     REFERENCES `concursante` (`id_concursante`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT)
 ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS `estado` (
+
+CREATE TABLE `estado` (
   `id_estado` tinyint(4) UNSIGNED NOT NULL AUTO_INCREMENT primary key,
   `descripcion` varchar(45) NOT NULL,
-  UNIQUE KEY `descripcion` (`descripcion`)
+   UNIQUE INDEX `e_descripcion_unique` (`descripcion`)
 )ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS usuario_estado (
-	`id_usuario_estado` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`fecha` datetime NOT NULL,
-	`id_estado` TINYINT (4) UNSIGNED NOT NULL,
-	`id_usuario` INT (10) UNSIGNED NOT NULL,
+
+CREATE TABLE usuario_estado (
+    `id_usuario_estado` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `fecha` datetime NOT NULL,
+    `id_estado` TINYINT (4) UNSIGNED NOT NULL,
+    `id_usuario` INT (10) UNSIGNED NOT NULL,
+    CONSTRAINT `ue_id_estado_constraint`
 	FOREIGN KEY (id_estado) REFERENCES estado (id_estado),
+    CONSTRAINT `ue_id_usuario_constraint`
 	FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario)
 )ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS concursante_estado (
-	id_concursante_estado int unsigned not null auto_increment primary key,
+
+CREATE TABLE concursante_estado (
+    id_concursante_estado int unsigned not null auto_increment primary key,
     fecha datetime not null,
     id_estado tinyint unsigned not null,
     id_concursante int unsigned not null,
-    FOREIGN KEY ( id_concursante ) references concursante (id_concursante),
-    FOREIGN KEY ( id_estado ) references estado (id_estado)
+    CONSTRAINT `ce_id_concursante_constraint`
+        FOREIGN KEY ( id_concursante ) references concursante (id_concursante),
+    CONSTRAINT `ce_id_estado_constraint`
+        FOREIGN KEY ( id_estado ) references estado (id_estado)
 )ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `recupero`;
+
 CREATE TABLE `recupero` (
-  `id_recupero` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `fecha` datetime NOT NULL,
-  `id_usuario` int(10) unsigned NOT NULL,
-  `tokken` varchar(45) NOT NULL,
-  `habilitado` char(1) NOT NULL DEFAULT 'S',
-  PRIMARY KEY (`id_recupero`),
-  KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `recupero_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=1;
+    `id_recupero` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `fecha` datetime NOT NULL,
+    `id_usuario` int(10) unsigned NOT NULL,
+    `tokken` varchar(45) NOT NULL,
+    `habilitado` char(1) NOT NULL DEFAULT 'S',
+    PRIMARY KEY (`id_recupero`),
+    INDEX `r_id_usuario_index` (`id_usuario`),
+    CONSTRAINT `r_id_usuario_constraint` 
+        FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+) ENGINE=InnoDB;
 
-/*
--- Query: 
--- Date: 2015-05-13 19:06
-*/
+
 INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (1,'image/jpeg','S');
-INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (2,'png','S');
-INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (3,'bmp','S');
-INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (4,'doc','S');
-INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (5,'pdf','S');
+INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (2,'image/png','S');
+INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (3,'image/bmp','S');
+INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (4,'text/doc','S');
+INSERT INTO `tipo_archivo` (`id_tipo_archivo`,`descripcion`,`habilitado`) VALUES (5,'text/pdf','S');
 
-/*
--- Query: 
--- Date: 2015-05-13 19:05
-*/
+
 INSERT INTO `pais` (`id_pais`,`descripcion`) VALUES (1,'Argentina');
 INSERT INTO `pais` (`id_pais`,`descripcion`) VALUES (2,'Chile');
 INSERT INTO `pais` (`id_pais`,`descripcion`) VALUES (3,'Uruguay');
@@ -326,10 +301,7 @@ INSERT INTO `pais` (`id_pais`,`descripcion`) VALUES (7,'Colombia');
 INSERT INTO `pais` (`id_pais`,`descripcion`) VALUES (8,'Mexico');
 INSERT INTO `pais` (`id_pais`,`descripcion`) VALUES (9,'España');
 
-/*
--- Query: 
--- Date: 2015-05-13 19:06
-*/
+
 INSERT INTO `tipo_pregunta` (`id_tipo_pregunta`,`descripcion`,`habilitado`) VALUES (1,'text','S');
 INSERT INTO `tipo_pregunta` (`id_tipo_pregunta`,`descripcion`,`habilitado`) VALUES (2,'date','S');
 INSERT INTO `tipo_pregunta` (`id_tipo_pregunta`,`descripcion`,`habilitado`) VALUES (3,'textarea','S');
@@ -339,6 +311,6 @@ INSERT INTO `tipo_pregunta` (`id_tipo_pregunta`,`descripcion`,`habilitado`) VALU
 INSERT INTO `tipo_pregunta` (`id_tipo_pregunta`,`descripcion`,`habilitado`) VALUES (7,'foto','S');
 
 
-insert into estado values (null, 'Pendiente');
-insert into estado values (null, 'Habilitado');
-insert into estado values (null, 'Eliminado');
+insert into estado values (1, 'Pendiente');
+insert into estado values (2, 'Habilitado');
+insert into estado values (3, 'Eliminado');
